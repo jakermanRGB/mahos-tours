@@ -7,7 +7,7 @@
 <meta name="description" content="Tours compartidos y privados desde el malecón de La Paz: Isla Espíritu Santo con lobos marinos, Balandra, Isla Cerralvo, tiburón ballena, pesca deportiva y yates con capitán y chef. Compartido desde $1,300 MXN.">
 <!-- DEMO: quitar noindex al publicar la versión final -->
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#0b161d">
+<meta name="theme-color" content="#ffffff">
 <!-- DEPLOY STEP: og:url y og:image necesitan la URL absoluta en vivo -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Maho's Tours La Paz">
@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Kaushan+Script&display=swap">
 <link rel="preload" as="image" href="assets/img/hero.webp" media="(min-width: 721px)" fetchpriority="high">
 <link rel="preload" as="image" href="assets/img/hero-m.webp" media="(max-width: 720px)" fetchpriority="high">
 <link rel="stylesheet" href="assets/estilos.css">
@@ -42,7 +42,7 @@
 <a class="skip" href="#main" data-t="skip">Saltar al contenido</a>
 
 <div class="demo-strip" role="note">
-  <span data-t="demo.strip">Propuesta de diseño para Maho's Tours La Paz</span>
+  <span data-t="demo.strip">Propuesta de diseño para Maho's Tours La Paz</span><span class="demo-strip__short" data-t="demo.short">Propuesta de diseño · Maho's Tours</span>
   <span class="demo-strip__sep" aria-hidden="true">·</span>
   <span class="demo-strip__muted" data-t="demo.fotos">Fotos de referencia con licencia libre; se reemplazan por las de Maho's</span>
 </div>
@@ -71,6 +71,7 @@
 <main id="main" tabindex="-1">
 
 <section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="hero__top">
   <div class="hero__stage" aria-hidden="true">
     <picture>
       <source media="(max-width: 720px)" srcset="assets/img/hero-m.webp" width="720" height="1280">
@@ -103,6 +104,7 @@
       </a>
       <button type="button" class="planner__map js-plan-map" data-t="plan.mapa">Ver la ruta en el mapa</button>
     </form>
+  </div>
   </div>
   <ul class="hero__facts" aria-label="Datos de Maho's Tours" data-t-attr="aria-label:log.label">
     <li><strong data-t="f.k1">Desde $1,300</strong><span data-t="f.v1">MXN por persona</span></li>
@@ -196,6 +198,7 @@
         <ol class="dests js-dests"></ol>
       </div>
       <div class="js-tour" hidden>
+        <button type="button" class="back-btn js-back"><span aria-hidden="true">←</span> <span data-t="d.volver">Ver todos los destinos</span></button>
         <header class="detail__head">
           <p class="detail__tipo js-tipo">Compartido</p>
           <h3 class="detail__name js-name">Espíritu Santo + Balandra</h3>
@@ -210,18 +213,20 @@
           <div>
             <h4 class="mini" data-t="d.ruta">La ruta</h4>
             <ol class="stops js-stops"></ol>
-            <div class="js-haces-wrap">
-              <h4 class="mini haces-h" data-t="d.haces">Qué haces</h4>
+            <details class="dsec js-haces-wrap" open>
+              <summary class="mini" data-t="d.haces">Qué haces</summary>
               <ul class="ticks ticks--dot js-haces"></ul>
-            </div>
+            </details>
           </div>
           <div>
-            <h4 class="mini" data-t="d.incluye">Incluye</h4>
-            <ul class="ticks js-incluye"></ul>
-            <div class="js-noincluye-wrap" hidden>
-              <h4 class="mini" data-t="d.noincluye">No incluye</h4>
+            <details class="dsec" open>
+              <summary class="mini" data-t="d.incluye">Incluye</summary>
+              <ul class="ticks js-incluye"></ul>
+            </details>
+            <details class="dsec js-noincluye-wrap" open hidden>
+              <summary class="mini" data-t="d.noincluye">No incluye</summary>
               <ul class="ticks ticks--no js-noincluye"></ul>
-            </div>
+            </details>
             <p class="detail__nota js-nota" hidden></p>
           </div>
         </div>
@@ -369,13 +374,13 @@
       </div>
     </div>
     <div class="faq">
-      <details open><summary data-t="faq.q1">¿Necesito saber nadar?</summary><p data-t="faq.a1">No es requisito. En el snorkel usas chaleco salvavidas y el guía está contigo en el agua. Si prefieres no meterte, disfrutas igual desde la lancha o la playa.</p></details>
-      <details><summary data-t="faq.q2">¿Qué pasa si hay viento?</summary><p data-t="faq.a2">La ruta y la playa se eligen el mismo día, según el viento y los permisos de SEMARNAT. Si la Capitanía de Puerto cierra la navegación, nadie sale: te escribimos para cambiar la fecha.</p></details>
-      <details><summary data-t="faq.q3">¿Cuánto pagan los niños?</summary><p data-t="faq.a3">En el compartido a Espíritu Santo + Balandra, $1,200 MXN por menor. En los tours privados y los yates el precio es por embarcación, sin importar la edad.</p></details>
-      <details><summary data-t="faq.q4">¿Dónde nos vemos?</summary><p data-t="faq.a4">El compartido a Espíritu Santo + Balandra sale del Muelle Fiscal, en el malecón. Los privados y los yates salen de Marina La Costa. Al reservar te mandamos la ubicación por WhatsApp.</p></details>
-      <details><summary data-t="faq.q5">¿La pesca incluye licencia?</summary><p data-t="faq.a5">No. La licencia de pesca deportiva se tramita antes de salir; la carnada y el lunch tampoco van incluidos. Te decimos cómo sacarla al reservar.</p></details>
-      <details><summary data-t="faq.q6">¿Cuándo hay tiburón ballena?</summary><p data-t="faq.a6">Se ve en la Bahía de La Paz en temporada, que suele ir de otoño a primavera. El horario cambia cada día, así que conviene tener el día libre. Escríbenos y te decimos cómo va la semana.</p></details>
-      <details><summary data-t="faq.q7">¿Cómo aparto mi lugar?</summary><p data-t="faq.a7">Elige tu tour en el mapa, pon la fecha y cuántos van, y toca Apartar por WhatsApp: el mensaje sale listo. Maho's te confirma lugar y forma de pago.</p></details>
+      <details name="faq" open><summary data-t="faq.q1">¿Necesito saber nadar?</summary><p data-t="faq.a1">No es requisito. En el snorkel usas chaleco salvavidas y el guía está contigo en el agua. Si prefieres no meterte, disfrutas igual desde la lancha o la playa.</p></details>
+      <details name="faq"><summary data-t="faq.q2">¿Qué pasa si hay viento?</summary><p data-t="faq.a2">La ruta y la playa se eligen el mismo día, según el viento y los permisos de SEMARNAT. Si la Capitanía de Puerto cierra la navegación, nadie sale: te escribimos para cambiar la fecha.</p></details>
+      <details name="faq"><summary data-t="faq.q3">¿Cuánto pagan los niños?</summary><p data-t="faq.a3">En el compartido a Espíritu Santo + Balandra, $1,200 MXN por menor. En los tours privados y los yates el precio es por embarcación, sin importar la edad.</p></details>
+      <details name="faq"><summary data-t="faq.q4">¿Dónde nos vemos?</summary><p data-t="faq.a4">El compartido a Espíritu Santo + Balandra sale del Muelle Fiscal, en el malecón. Los privados y los yates salen de Marina La Costa. Al reservar te mandamos la ubicación por WhatsApp.</p></details>
+      <details name="faq"><summary data-t="faq.q5">¿La pesca incluye licencia?</summary><p data-t="faq.a5">No. La licencia de pesca deportiva se tramita antes de salir; la carnada y el lunch tampoco van incluidos. Te decimos cómo sacarla al reservar.</p></details>
+      <details name="faq"><summary data-t="faq.q6">¿Cuándo hay tiburón ballena?</summary><p data-t="faq.a6">Se ve en la Bahía de La Paz en temporada, que suele ir de otoño a primavera. El horario cambia cada día, así que conviene tener el día libre. Escríbenos y te decimos cómo va la semana.</p></details>
+      <details name="faq"><summary data-t="faq.q7">¿Cómo aparto mi lugar?</summary><p data-t="faq.a7">Elige tu tour en el mapa, pon la fecha y cuántos van, y toca Apartar por WhatsApp: el mensaje sale listo. Maho's te confirma lugar y forma de pago.</p></details>
     </div>
   </div>
 </section>

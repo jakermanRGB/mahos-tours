@@ -469,6 +469,8 @@ function renderDetail(animate) {
     const noW = $('.js-noincluye-wrap', detail), no = $('.js-noincluye', detail); no.textContent = '';
     if (t.noincluye) { noW.hidden = false; t.noincluye[lang].forEach(x => li(no, x)); } else noW.hidden = true;
     const nota = $('.js-nota', detail); nota.hidden = !t.nota; nota.textContent = t.nota ? t.nota[lang] : '';
+    const mobile = matchMedia('(max-width: 720px)').matches;
+    $$('.dsec', detail).forEach(d => { d.open = !mobile; });
     renderPrices(t); renderControls(t); updateTotal();
     $('.js-fecha', detail).value = state.fecha;
   }
@@ -491,12 +493,33 @@ function selectTour(id, opts = {}) {
   const chip = $(`.chip[data-tour="${id}"]`);
   if (chip && chip.parentElement.scrollWidth > chip.parentElement.clientWidth) chip.parentElement.scrollTo({ left: chip.offsetLeft - 16, behavior: RM.matches ? 'auto' : 'smooth' });
 }
+function pushNav(id) {
+  try {
+    history.replaceState({ mt: 1, tour: state.tour, y: scrollY }, '');
+    history.pushState({ mt: 1, tour: id, y: null }, '');
+  } catch (e) {}
+}
 function goToTour(id) {
+  pushNav(id);
   chartSeen = true;
   selectTour(id);
   $('#carta').scrollIntoView({ behavior: RM.matches ? 'auto' : 'smooth' });
 }
+addEventListener('popstate', e => {
+  const st = e.state;
+  if (!st || !st.mt) return;
+  chartSeen = true;
+  selectTour(st.tour, { silent: true });
+  if (st.y !== null && st.y !== undefined) scrollTo({ top: st.y, behavior: 'auto' });
+});
+try { history.replaceState({ mt: 1, tour: 'todos', y: 0 }, ''); } catch (e) {}
+$('.js-back').addEventListener('click', () => {
+  if (history.state && history.state.mt && history.state.y === null) { history.back(); return; }
+  selectTour('todos');
+  $('#carta').scrollIntoView({ behavior: RM.matches ? 'auto' : 'smooth' });
+});
 $$('.chip').forEach(c => c.addEventListener('click', () => {
+  if (c.dataset.tour !== state.tour) pushNav(c.dataset.tour);
   selectTour(c.dataset.tour);
   if (matchMedia('(max-width: 820px)').matches) $('.chart').scrollIntoView({ behavior: RM.matches ? 'auto' : 'smooth', block: 'center' });
 }));
@@ -590,6 +613,14 @@ $('.js-plan-map').addEventListener('click', () => {
   if (i.barco) state.barco = i.barco;
   goToTour(i.id);
 });
+
+/* ---------- preguntas: una abierta a la vez ---------- */
+$$('.faq details').forEach(d => d.addEventListener('toggle', () => {
+  if (!d.open) return;
+  $$('.faq details').forEach(o => { if (o !== d) o.open = false; });
+  const top = d.getBoundingClientRect().top;
+  if (top < 80) scrollBy({ top: top - 90, behavior: RM.matches ? 'auto' : 'smooth' });
+}));
 
 /* ---------- salida, mapa, horario ---------- */
 let punto = 'muelle';

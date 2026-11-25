@@ -4,6 +4,8 @@ window.I18N = {
     "_title": "Maho's Tours La Paz · Espíritu Santo, Balandra & private yacht tours",
     "skip": "Skip to content",
     "demo.strip": "Design proposal for Maho's Tours La Paz",
+    "demo.short": "Design proposal · Maho's Tours",
+    "d.volver": "See all destinations",
     "demo.fotos": "Reference photos under free licenses; Maho's own photos go in at launch",
     "nav.tours": "Tours",
     "nav.donde": "Where we go",
