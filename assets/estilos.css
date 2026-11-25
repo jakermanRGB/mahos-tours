@@ -490,3 +490,5 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
 
 @media (min-width:1101px){.chip{flex:1 1 0;min-width:0;padding:10px 12px}.chip__name{font-size:13.5px}}
 @media (max-width:720px){.chart__cap{display:none}}
+.tours .h2 strong{color:#11899a}
+.detail__tipo{color:#c23f26}
