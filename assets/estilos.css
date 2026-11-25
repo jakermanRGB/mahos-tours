@@ -432,3 +432,10 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
 .brand__logo{width:56px;height:auto;flex:0 0 auto;filter:drop-shadow(0 2px 6px rgba(0,0,0,.35))}
 .foot__logo{width:130px;height:auto;margin:0 0 14px}
 @media (max-width:520px){.brand__logo{width:48px}}
+
+/* tarjetas: textos apilados sin encimarse aunque el título ocupe dos líneas */
+.vcard,.dcard{display:flex;flex-direction:column;justify-content:flex-end;gap:6px;padding:18px}
+.vcard__t,.vcard__s,.dcard__k,.dcard__t{position:relative;left:auto;right:auto;bottom:auto;z-index:1}
+.vcard__t,.dcard__t{line-height:1.08}
+.dcard__k{line-height:1.35}
+@media (max-width:560px){.vcard{padding:14px}.vcard__t{font-size:20px}.vcard__s{font-size:13px}.dcard__t{font-size:20px}.dcard__k{font-size:10px}}
