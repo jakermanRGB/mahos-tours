@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maho's Tours La Paz · Tours a Isla Espíritu Santo, Balandra y yates privados</title>
+<meta name="description" content="Tours compartidos y privados desde el malecón de La Paz: Isla Espíritu Santo con lobos marinos, Balandra, Isla Cerralvo, tiburón ballena, pesca deportiva y yates con capitán y chef. Compartido desde $1,300 MXN.">
+<!-- DEMO: quitar noindex al publicar la versión final -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b161d">
+<!-- DEPLOY STEP: og:url y og:image necesitan la URL absoluta en vivo -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Maho's Tours La Paz">
+<meta property="og:description" content="Isla Espíritu Santo, Balandra, Cerralvo y tiburón ballena. Tours compartidos y privados desde el malecón de La Paz.">
+<meta property="og:url" content="https://demo-mahostours.vercel.app/">
+<meta property="og:image" content="https://demo-mahostours.vercel.app/assets/img/og.jpg">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap">
+<link rel="preload" as="image" href="assets/img/hero.webp" media="(min-width: 721px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/hero-m.webp" media="(max-width: 720px)" fetchpriority="high">
+<link rel="stylesheet" href="assets/estilos.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "name": "Maho's Tours La Paz",
+  "url": "https://demo-mahostours.vercel.app/",
+  "image": "https://demo-mahostours.vercel.app/assets/img/og.jpg",
+  "description": "Tours compartidos y privados a Isla Espíritu Santo, Balandra, Isla Cerralvo y tiburón ballena; pesca deportiva y yates privados desde La Paz, B.C.S.",
+  "priceRange": "$1,200 - $32,000 MXN",
+  "currenciesAccepted": "MXN",
+  "areaServed": "La Paz, Baja California Sur",
+  "address": { "@type": "PostalAddress", "streetAddress": "Muelle Fiscal, Malecón", "addressLocality": "La Paz", "addressRegion": "B.C.S.", "addressCountry": "MX" },
+  "sameAs": ["https://www.instagram.com/mahostours/", "https://www.facebook.com/Mahostours"]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main" data-t="skip">Saltar al contenido</a>
+
+<div class="demo-strip" role="note">
+  <span data-t="demo.strip">Propuesta de diseño para Maho's Tours La Paz</span>
+  <span class="demo-strip__sep" aria-hidden="true">·</span>
+  <span class="demo-strip__muted" data-t="demo.fotos">Fotos de referencia con licencia libre; se reemplazan por las de Maho's</span>
+</div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Maho's Tours La Paz, inicio">
+    <img class="brand__logo" src="assets/img/logo-mahos.svg" width="56" height="54" alt="" decoding="async">
+    <span class="brand__word">MAHO'S<span class="brand__tours">TOURS · LA PAZ</span></span>
+  </a>
+  <nav class="nav__links" aria-label="Secciones">
+    <a href="#tours" data-t="nav.tours">Tours</a>
+    <a href="#carta" data-t="nav.donde">¿Dónde son?</a>
+    <a href="#yates" data-t="nav.yates">Yates</a>
+    <a href="#antes" data-t="nav.antes">Preguntas</a>
+    <a href="#salida" data-t="nav.salida">Punto de salida</a>
+  </nav>
+  <div class="nav__end">
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn btn--accent btn--sm js-wa" href="#" target="_blank" rel="noopener" data-t="nav.reservar">Reservar</a>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="hero__stage" aria-hidden="true">
+    <picture>
+      <source media="(max-width: 720px)" srcset="assets/img/hero-m.webp" width="720" height="1280">
+      <img class="hero__img" src="assets/img/hero.webp" width="1920" height="1280" alt="" fetchpriority="high" decoding="async">
+    </picture>
+    <div class="hero__light"></div>
+    <div class="hero__scrim"></div>
+  </div>
+  <div class="hero__in">
+    <div class="hero__copy">
+      <p class="eyebrow eyebrow--light reveal-up" data-t="hero.coord">Tours en barco · La Paz, B.C.S.</p>
+      <h1 id="hero-title" class="hero__title">
+        <span class="hero__l1 reveal-up" data-t="hero.t1">Isla Espíritu Santo,</span>
+        <span class="hero__l2 reveal-up" data-t="hero.t2">Balandra y los lobos marinos</span>
+      </h1>
+    </div>
+    <form class="planner reveal-up" onsubmit="return false" aria-labelledby="planner-title">
+      <p id="planner-title" class="planner__title" data-t="plan.title">Tu día en el mar empieza aquí</p>
+      <label class="pfield"><span data-t="plan.tour">Tour</span><select class="js-plan-tour"></select></label>
+      <div class="planner__row">
+        <label class="pfield"><span data-t="plan.fecha">Fecha</span><input type="date" class="js-plan-fecha"></label>
+        <label class="pfield pfield--sm"><span data-t="plan.personas">Personas</span>
+          <select class="js-plan-personas"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>10</option><option>12</option><option>15</option></select>
+        </label>
+      </div>
+      <p class="planner__price"><span class="js-plan-precio">$2,600 MXN</span> <span class="planner__por js-plan-por">total estimado</span></p>
+      <a class="btn btn--accent btn--block js-plan-go" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8.5c0 3.5 2.6 6.5 6.4 6.6l1-1.6-2-1-1 .9c-1-.4-2.2-1.6-2.6-2.6l.9-1-1-2z" fill="currentColor"/></svg>
+        <span data-t="plan.cta">Consultar por WhatsApp</span>
+      </a>
+      <button type="button" class="planner__map js-plan-map" data-t="plan.mapa">Ver la ruta en el mapa</button>
+    </form>
+  </div>
+  <ul class="hero__facts" aria-label="Datos de Maho's Tours" data-t-attr="aria-label:log.label">
+    <li><strong data-t="f.k1">Desde $1,300</strong><span data-t="f.v1">MXN por persona</span></li>
+    <li><strong data-t="f.k2">Lancha techada</strong><span data-t="f.v2">con baño a bordo</span></li>
+    <li><strong data-t="f.k3">Guía certificado</strong><span data-t="f.v3">permisos y seguro</span></li>
+    <li><strong data-t="f.k4">Salida</strong><span data-t="f.v4">malecón de La Paz</span></li>
+  </ul>
+</section>
+
+<section class="explora" aria-labelledby="explora-title">
+  <div class="wrap">
+    <h2 id="explora-title" class="h-small" data-t="exp.title">Explora La Paz</h2>
+    <ul class="explora__row">
+      <li><button type="button" data-goto-tour="es-balandra"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 34c6-10 12-14 20-14s14 4 20 14"/><path d="M4 40c4-2 8-2 12 0s8 2 12 0 8-2 12 0"/><path d="M30 20c-1-6 2-10 6-12"/></svg><span data-t="exp.islas">Islas</span></button></li>
+      <li><button type="button" data-goto-tour="es-privado"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 30c4-10 14-14 22-12 5 1 8 4 10 8-4 0-6 2-8 4"/><path d="M12 30c-2 4-6 6-8 6 4 2 10 2 14-2"/><circle cx="34" cy="20" r="1.2"/><path d="M4 42c4-2 8-2 12 0s8 2 12 0 8-2 12 0"/></svg><span data-t="exp.lobos">Lobos marinos</span></button></li>
+      <li><button type="button" data-goto-tour="tiburon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 26c8-8 22-10 34-4l6-6v20l-6-6c-12 6-26 4-34-4z"/><circle cx="12" cy="24" r=".8"/><circle cx="18" cy="21" r=".8"/><circle cx="22" cy="27" r=".8"/><circle cx="27" cy="22" r=".8"/></svg><span data-t="exp.tiburon">Tiburón ballena</span></button></li>
+      <li><button type="button" data-goto-tour="balandra-privado"><svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="18" cy="18" rx="10" ry="7"/><path d="M28 18h8l4-4M8 18H4M18 25v10M12 40c4-3 8-3 12 0s8 3 12 0"/></svg><span data-t="exp.snorkel">Snorkel</span></button></li>
+      <li><button type="button" data-goto-tour="pesca"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 6v26a8 8 0 0 0 16 0v-4"/><path d="M8 6l30 6M38 12v18"/><path d="M34 30c2 2 4 4 4 8"/></svg><span data-t="exp.pesca">Pesca deportiva</span></button></li>
+      <li><button type="button" data-goto-tour="yates"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 32h40l-6 8H10z"/><path d="M12 32v-8h18l6 8M18 24v-6h8"/><path d="M4 44c4-2 8-2 12 0s8 2 12 0 8-2 12 0"/></svg><span data-t="exp.yates">Yates privados</span></button></li>
+      <li><button type="button" data-goto-tour="cerralvo"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 30c6-4 10-12 18-14s14 4 18 10"/><path d="M4 38c4-2 8-2 12 0s8 2 12 0 8-2 12 0"/><path d="M30 10l2-4 2 4"/></svg><span data-t="exp.cerralvo">Isla Cerralvo</span></button></li>
+    </ul>
+  </div>
+</section>
+
+<section class="tours" id="tours" aria-labelledby="tours-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow" data-t="tours.eyebrow">Compartidos y privados</p>
+        <h2 id="tours-title" class="h2"><span data-t="tours.t1">Nuestros</span> <strong data-t="tours.t2">tours</strong></h2>
+      </div>
+      <div class="carousel-ctl">
+        <button type="button" class="js-prev" aria-label="Anterior" data-t-attr="aria-label:ui.prev">‹</button><button type="button" class="js-next" aria-label="Siguiente" data-t-attr="aria-label:ui.next">›</button>
+      </div>
+    </div>
+  </div>
+  <ul class="cards js-cards"></ul>
+</section>
+
+<section class="carta" id="carta" aria-labelledby="carta-title">
+  <div class="wrap carta__head">
+    <p class="eyebrow" data-t="carta.eyebrow">Bahía de La Paz · Mar de Cortés</p>
+    <h2 id="carta-title" class="h2"><span data-t="carta.t1">¿Dónde son</span> <strong data-t="carta.t2">los tours?</strong></h2>
+    <p class="lede" data-t="carta.lede">Todos salen del malecón de La Paz. Toca un tour y mira su ruta parada por parada, qué incluye y cuánto cuesta.</p>
+  </div>
+  <div class="wrap carta__grid">
+    <div class="picker" role="tablist" aria-label="Tours" data-t-attr="aria-label:carta.tablist">
+      <button class="chip chip--all" role="tab" data-tour="todos" aria-selected="true"><span class="chip__name" data-t="carta.todos">Todos los destinos</span><span class="chip__meta" data-t="carta.todos.m">Mapa general</span></button>
+      <button class="chip" role="tab" data-tour="es-balandra" aria-selected="false"><span class="chip__name">Espíritu Santo + Balandra</span><span class="chip__meta">Compartido · 6 h · $1,300</span></button>
+      <button class="chip" role="tab" data-tour="cerralvo" aria-selected="false"><span class="chip__name">Isla Cerralvo</span><span class="chip__meta">Compartido o privado · 5 h · $1,600</span></button>
+      <button class="chip" role="tab" data-tour="tiburon" aria-selected="false"><span class="chip__name">Tiburón ballena</span><span class="chip__meta">Compartido · 2 h · $1,600</span></button>
+      <button class="chip" role="tab" data-tour="es-privado" aria-selected="false"><span class="chip__name">Espíritu Santo privado</span><span class="chip__meta">Privado · 6 h · $12,000</span></button>
+      <button class="chip" role="tab" data-tour="balandra-privado" aria-selected="false"><span class="chip__name">Balandra privado</span><span class="chip__meta">Privado · 4 h · $12,000</span></button>
+      <button class="chip" role="tab" data-tour="pesca" aria-selected="false"><span class="chip__name">Pesca deportiva</span><span class="chip__meta">Privado · 7 h · $6,500</span></button>
+      <button class="chip" role="tab" data-tour="yates" aria-selected="false"><span class="chip__name">Yate de día completo</span><span class="chip__meta">Yate · 8 h · $26,500</span></button>
+    </div>
+
+    <figure class="chart" aria-label="Mapa de la Bahía de La Paz con los destinos y la ruta del tour" data-t-attr="aria-label:carta.chart">
+      <svg class="chart__svg" viewBox="0 0 1000 950" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><path d="M0 0V7" stroke="var(--land-line)" stroke-width="1"/></pattern>
+          <radialGradient id="shoal" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="var(--shoal)" stop-opacity=".9"/><stop offset="1" stop-color="var(--shoal)" stop-opacity="0"/></radialGradient>
+        </defs>
+        <rect width="1000" height="950" fill="var(--water)"/>
+        <g class="world">
+          <g class="chart__grid"></g>
+          <g class="chart__shoals"></g>
+          <g class="chart__land"></g>
+          <g class="chart__labels"></g>
+          <g class="chart__rays"></g>
+          <g class="chart__route"><path class="route route--ghost" d=""/><path class="route route--live" d=""/></g>
+          <g class="chart__pins"></g>
+          <g class="chart__stops"></g>
+          <g class="chart__boat"><g class="boat-shape"><path d="M-11-4h16l6 4-6 4h-16z"/><path d="M-6-4v-6h7v6" fill="none" stroke="currentColor" stroke-width="1.6"/></g></g>
+        </g>
+        <g class="chart__rose" transform="translate(900 110)">
+          <circle r="46" fill="none" stroke="var(--chart-ink)" stroke-opacity=".35"/>
+          <path d="M0-54L7 0 0 54-7 0z" fill="var(--chart-ink)" fill-opacity=".7"/>
+          <path d="M-54 0L0 5 54 0 0-5z" fill="var(--chart-ink)" fill-opacity=".35"/>
+          <text y="-62" text-anchor="middle" class="rose-n">N</text>
+        </g>
+      </svg>
+      <figcaption class="chart__cap" data-t="carta.cap">Mapa ilustrativo, no apto para navegación · distancias en línea recta desde el malecón</figcaption>
+    </figure>
+
+    <article class="detail" role="tabpanel" aria-live="polite" id="detail">
+      <div class="js-overview">
+        <p class="detail__tipo" data-t="ov.tipo">Todos los destinos</p>
+        <h3 class="detail__name" data-t="ov.title">Un mar, siete formas de vivirlo</h3>
+        <p class="detail__line" data-t="ov.line">Del malecón a Balandra, a la isla Espíritu Santo, a los lobos marinos de Los Islotes y, del otro lado, a Isla Cerralvo. Elige un destino en la lista o en el mapa.</p>
+        <ol class="dests js-dests"></ol>
+      </div>
+      <div class="js-tour" hidden>
+        <header class="detail__head">
+          <p class="detail__tipo js-tipo">Compartido</p>
+          <h3 class="detail__name js-name">Espíritu Santo + Balandra</h3>
+          <p class="detail__line js-line"></p>
+          <dl class="detail__meta">
+            <div><dt data-t="d.duracion">Duración</dt><dd class="js-dur">6 h</dd></div>
+            <div><dt data-t="d.horario">Horario</dt><dd class="js-hor">11:00 – 17:00</dd></div>
+            <div><dt data-t="d.salida">Salida</dt><dd class="js-sal">Muelle Fiscal</dd></div>
+          </dl>
+        </header>
+        <div class="detail__cols">
+          <div>
+            <h4 class="mini" data-t="d.ruta">La ruta</h4>
+            <ol class="stops js-stops"></ol>
+            <div class="js-haces-wrap">
+              <h4 class="mini haces-h" data-t="d.haces">Qué haces</h4>
+              <ul class="ticks ticks--dot js-haces"></ul>
+            </div>
+          </div>
+          <div>
+            <h4 class="mini" data-t="d.incluye">Incluye</h4>
+            <ul class="ticks js-incluye"></ul>
+            <div class="js-noincluye-wrap" hidden>
+              <h4 class="mini" data-t="d.noincluye">No incluye</h4>
+              <ul class="ticks ticks--no js-noincluye"></ul>
+            </div>
+            <p class="detail__nota js-nota" hidden></p>
+          </div>
+        </div>
+        <form class="book" onsubmit="return false" aria-label="Apartar este tour" data-t-attr="aria-label:book.label">
+          <div class="book__prices js-prices"></div>
+          <div class="book__fields">
+            <label class="field field--date"><span data-t="book.fecha">Fecha</span><input type="date" class="js-fecha"></label>
+            <div class="js-steppers book__steppers"></div>
+            <div class="js-options book__options"></div>
+          </div>
+          <div class="book__foot">
+            <p class="book__total"><span data-t="book.total">Total estimado</span><strong class="js-total">$1,300 MXN</strong></p>
+            <a class="btn btn--accent btn--block js-book" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8.5c0 3.5 2.6 6.5 6.4 6.6l1-1.6-2-1-1 .9c-1-.4-2.2-1.6-2.6-2.6l.9-1-1-2z" fill="currentColor"/></svg>
+              <span data-t="book.cta">Apartar por WhatsApp</span>
+            </a>
+            <p class="book__fine" data-t="book.fine">Te llega a WhatsApp con el tour, la fecha y las personas. Maho's confirma lugar y forma de pago.</p>
+          </div>
+        </form>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="viaje" aria-labelledby="viaje-title">
+  <div class="wrap">
+    <h2 id="viaje-title" class="h-small" data-t="via.title">¿Con quién viajas?</h2>
+    <div class="viaje__grid">
+      <button type="button" class="vcard reveal" data-goto-tour="es-balandra"><img src="assets/img/v-familia.webp" width="700" height="465" loading="lazy" decoding="async" alt=""><span class="vcard__t" data-t="via.fam">Familia</span><span class="vcard__s" data-t="via.fam.s">Compartido · menores $1,200</span></button>
+      <button type="button" class="vcard reveal" data-goto-tour="balandra-privado"><img src="assets/img/v-pareja.webp" width="700" height="525" loading="lazy" decoding="async" alt=""><span class="vcard__t" data-t="via.par">Pareja</span><span class="vcard__s" data-t="via.par.s">Balandra privado</span></button>
+      <button type="button" class="vcard reveal" data-goto-tour="yates"><img src="assets/img/v-amigos.webp" width="700" height="525" loading="lazy" decoding="async" alt=""><span class="vcard__t" data-t="via.ami">Grupo de amigos</span><span class="vcard__s" data-t="via.ami.s">Yate para 8, 12 o 15</span></button>
+      <button type="button" class="vcard reveal" data-goto-tour="tiburon"><img src="assets/img/v-snorkel.webp" width="700" height="467" loading="lazy" decoding="async" alt=""><span class="vcard__t" data-t="via.ave">Amantes del mar</span><span class="vcard__s" data-t="via.ave.s">Tiburón ballena y lobos</span></button>
+    </div>
+  </div>
+</section>
+
+<section class="yates" id="yates" aria-labelledby="yates-title">
+  <div class="yates__bg" aria-hidden="true"><img src="assets/img/t-yates.webp" width="1400" height="934" loading="lazy" decoding="async" alt=""></div>
+  <div class="wrap">
+    <div class="yates__head">
+      <p class="eyebrow eyebrow--light" data-t="yates.eyebrow">Yates privados · 8 horas</p>
+      <h2 id="yates-title" class="h2"><span data-t="yates.t1">Tu propio barco,</span> <strong data-t="yates.t2">con capitán, chef y marinero</strong></h2>
+      <p class="lede" data-t="yates.lede">Eliges la playa el mismo día, según el viento y los permisos de SEMARNAT: Punta Lupona, San Gabriel o La Bonanza, en Espíritu Santo. Después, Balandra y la colonia de lobos de La Loberita, junto al faro de San Lorenzo.</p>
+      <button class="link-route" type="button" data-goto-tour="yates"><span data-t="yates.verruta">Ver la ruta en el mapa</span> →</button>
+    </div>
+    <div class="fleet">
+      <article class="boat reveal">
+        <p class="boat__cap"><span>12</span> <span data-t="yates.personas">personas</span></p>
+        <h3 class="boat__name">Sea Ray 40</h3>
+        <p class="boat__price"><strong>$32,000</strong> <span>MXN</span></p>
+        <ul class="ticks ticks--light">
+          <li data-t="yates.sr1">Baño y camarote</li>
+          <li data-t="yates.sr2">Capitán, chef y marinero</li>
+          <li data-t="yates.sr3">Pesca en el trayecto</li>
+          <li data-t="yates.sr4">Tapete flotante, dinghy, equipo de playa, snorkel y pesca</li>
+        </ul>
+        <a class="btn btn--line-light js-wa" href="#" target="_blank" rel="noopener" data-wa-extra-es="Me interesa el Sea Ray 40 (8 horas)." data-wa-extra-en="I'm interested in the Sea Ray 40 (8 hours)." data-t="yates.apartar1">Apartar el Sea Ray 40</a>
+      </article>
+      <article class="boat boat--big reveal">
+        <p class="boat__cap"><span>15</span> <span data-t="yates.personas2">personas</span></p>
+        <h3 class="boat__name">Chris Craft 45</h3>
+        <p class="boat__price"><strong>$30,000</strong> <span>MXN</span></p>
+        <ul class="ticks ticks--light">
+          <li data-t="yates.cc1">Baño y camarote</li>
+          <li data-t="yates.cc2">Capitán, chef y marinero</li>
+          <li data-t="yates.cc3">Pesca en el trayecto</li>
+          <li data-t="yates.cc4">Tapete flotante, dinghy, equipo de playa, snorkel y pesca</li>
+        </ul>
+        <a class="btn btn--accent js-wa" href="#" target="_blank" rel="noopener" data-wa-extra-es="Me interesa el Chris Craft 45 (8 horas)." data-wa-extra-en="I'm interested in the Chris Craft 45 (8 hours)." data-t="yates.apartar2">Apartar el Chris Craft 45</a>
+      </article>
+      <article class="boat reveal">
+        <p class="boat__cap"><span>8</span> <span data-t="yates.personas3">personas</span></p>
+        <h3 class="boat__name" data-t="yates.y8">Yate privado</h3>
+        <p class="boat__price"><strong>$26,500</strong> <span>MXN</span></p>
+        <ul class="ticks ticks--light">
+          <li data-t="yates.y1">Baño</li>
+          <li data-t="yates.y2">Capitán, chef y marinero</li>
+          <li data-t="yates.y3">Café y pan dulce, fruta, ceviche, sashimi y totopos</li>
+          <li data-t="yates.y4">Hielo, aguas, sodas y cervezas</li>
+        </ul>
+        <a class="btn btn--line-light js-wa" href="#" target="_blank" rel="noopener" data-wa-extra-es="Me interesa el yate privado para 8 personas (8 horas)." data-wa-extra-en="I'm interested in the private yacht for 8 (8 hours)." data-t="yates.apartar3">Apartar el yate de 8</a>
+      </article>
+    </div>
+    <div class="manifest">
+      <div>
+        <p class="eyebrow eyebrow--light" data-t="yates.m.eyebrow">Lo que sube a bordo</p>
+        <p class="manifest__note" data-t="yates.m.note">En el Sea Ray 40 y el Chris Craft 45, para todo el grupo.</p>
+      </div>
+      <ul class="manifest__list">
+        <li><span data-t="yates.m1">Café y pan dulce</span><i aria-hidden="true"></i><b>✓</b></li>
+        <li><span data-t="yates.m2">Platón de frutas</span><i aria-hidden="true"></i><b>✓</b></li>
+        <li><span data-t="yates.m3">Ceviche</span><i aria-hidden="true"></i><b>3 L</b></li>
+        <li><span data-t="yates.m4">Sashimi y totopos</span><i aria-hidden="true"></i><b>✓</b></li>
+        <li><span data-t="yates.m5">Sándwich o quesadilla</span><i aria-hidden="true"></i><b>✓</b></li>
+        <li><span data-t="yates.m6">Cervezas</span><i aria-hidden="true"></i><b>24</b></li>
+        <li><span data-t="yates.m7">Sodas</span><i aria-hidden="true"></i><b>24</b></li>
+        <li><span data-t="yates.m8">Aguas</span><i aria-hidden="true"></i><b>24</b></li>
+        <li><span data-t="yates.m9">Bolsas de hielo</span><i aria-hidden="true"></i><b>6</b></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="porque" aria-labelledby="porque-title">
+  <div class="wrap">
+    <h2 id="porque-title" class="h-small" data-t="pq.title">¿Por qué reservar con Maho's?</h2>
+    <ul class="porque__row">
+      <li class="reveal"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4l16 6v12c0 10-7 18-16 22C15 40 8 32 8 22V10z"/><path d="M17 24l5 5 9-10"/></svg><strong data-t="pq.1">Permisos y seguro</strong><span data-t="pq.1s">Permisos del parque nacional y seguro incluidos</span></li>
+      <li class="reveal"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="16" r="8"/><path d="M8 42c2-9 8-14 16-14s14 5 16 14"/><path d="M30 30l4 4 7-8"/></svg><strong data-t="pq.2">Guía certificado</strong><span data-t="pq.2s">Contigo en la lancha y en el agua</span></li>
+      <li class="reveal"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 30h40l-6 8H10z"/><path d="M8 30V18h32v12"/><path d="M8 18l16-8 16 8"/><path d="M28 22h6v8h-6z"/></svg><strong data-t="pq.3">Lancha techada con baño</strong><span data-t="pq.3s">Sombra y comodidad todo el día</span></li>
+      <li class="reveal"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="12" width="36" height="24" rx="4"/><path d="M6 20h36"/><path d="M14 30h8"/></svg><strong data-t="pq.4">Precio claro en pesos</strong><span data-t="pq.4s">Lo ves aquí antes de escribirnos</span></li>
+      <li class="reveal"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s14-12 14-24a14 14 0 0 0-28 0c0 12 14 24 14 24z"/><circle cx="24" cy="20" r="5"/></svg><strong data-t="pq.5">Sales del malecón</strong><span data-t="pq.5s">Muelle Fiscal y Marina La Costa</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="destinos" aria-labelledby="dest-title">
+  <div class="wrap">
+    <p class="eyebrow" data-t="dest.eyebrow">En la ruta</p>
+    <h2 id="dest-title" class="h2"><span data-t="dest.t1">Lo que vas a ver</span> <strong data-t="dest.t2">desde la lancha y bajo el agua</strong></h2>
+  </div>
+  <div class="wrap dest__grid">
+    <button type="button" class="dcard dcard--tall reveal" data-goto-tour="es-privado"><img src="assets/img/d-lobo.webp" width="1000" height="667" loading="lazy" decoding="async" alt="Lobo marino nadando bajo el agua cerca de La Paz" data-t-attr="alt:dest.a.alt"><span class="dcard__k" data-t="dest.a.k">Los Islotes · todo el año</span><span class="dcard__t" data-t="dest.a.t">Lobos marinos</span></button>
+    <button type="button" class="dcard reveal" data-goto-tour="tiburon"><img src="assets/img/t-tiburon.webp" width="900" height="600" loading="lazy" decoding="async" alt="Tiburón ballena en la Bahía de La Paz" data-t-attr="alt:dest.b.alt"><span class="dcard__k" data-t="dest.b.k">Bahía de La Paz · en temporada</span><span class="dcard__t" data-t="dest.b.t">Tiburón ballena</span></button>
+    <button type="button" class="dcard reveal" data-goto-tour="balandra-privado"><img src="assets/img/d-hongo.webp" width="800" height="533" loading="lazy" decoding="async" alt="La roca El Hongo en playa Balandra" data-t-attr="alt:dest.c.alt"><span class="dcard__k" data-t="dest.c.k">Balandra</span><span class="dcard__t" data-t="dest.c.t">El Hongo</span></button>
+    <button type="button" class="dcard reveal" data-goto-tour="es-balandra"><img src="assets/img/d-es.webp" width="800" height="600" loading="lazy" decoding="async" alt="Lanchas en una playa de Isla Espíritu Santo" data-t-attr="alt:dest.d.alt"><span class="dcard__k" data-t="dest.d.k">Isla Espíritu Santo</span><span class="dcard__t" data-t="dest.d.t">Lunch en la playa</span></button>
+    <button type="button" class="dcard reveal" data-goto-tour="es-privado"><img src="assets/img/d-isla.webp" width="1000" height="667" loading="lazy" decoding="async" alt="Vista aérea de las islas Espíritu Santo y Partida" data-t-attr="alt:dest.e.alt"><span class="dcard__k" data-t="dest.e.k">Archipiélago</span><span class="dcard__t" data-t="dest.e.t">Espíritu Santo y Partida</span></button>
+  </div>
+</section>
+
+<section class="antes" id="antes" aria-labelledby="antes-title">
+  <div class="wrap antes__grid">
+    <div class="antes__side">
+      <p class="eyebrow" data-t="antes.eyebrow">Antes de ir</p>
+      <h2 id="antes-title" class="h2"><span data-t="antes.t1">Preguntas</span> <strong data-t="antes.t2">frecuentes</strong></h2>
+      <div class="pack">
+        <h3 class="mini" data-t="antes.llevar">Qué llevar</h3>
+        <ul class="pack__list">
+          <li data-t="antes.l1">Traje de baño y toalla</li>
+          <li data-t="antes.l2">Bloqueador biodegradable: Espíritu Santo es parque nacional</li>
+          <li data-t="antes.l3">Gorra y lentes de sol</li>
+          <li data-t="antes.l4">Una muda de ropa seca</li>
+          <li data-t="antes.l5">Cámara a prueba de agua, si tienes</li>
+        </ul>
+      </div>
+    </div>
+    <div class="faq">
+      <details open><summary data-t="faq.q1">¿Necesito saber nadar?</summary><p data-t="faq.a1">No es requisito. En el snorkel usas chaleco salvavidas y el guía está contigo en el agua. Si prefieres no meterte, disfrutas igual desde la lancha o la playa.</p></details>
+      <details><summary data-t="faq.q2">¿Qué pasa si hay viento?</summary><p data-t="faq.a2">La ruta y la playa se eligen el mismo día, según el viento y los permisos de SEMARNAT. Si la Capitanía de Puerto cierra la navegación, nadie sale: te escribimos para cambiar la fecha.</p></details>
+      <details><summary data-t="faq.q3">¿Cuánto pagan los niños?</summary><p data-t="faq.a3">En el compartido a Espíritu Santo + Balandra, $1,200 MXN por menor. En los tours privados y los yates el precio es por embarcación, sin importar la edad.</p></details>
+      <details><summary data-t="faq.q4">¿Dónde nos vemos?</summary><p data-t="faq.a4">El compartido a Espíritu Santo + Balandra sale del Muelle Fiscal, en el malecón. Los privados y los yates salen de Marina La Costa. Al reservar te mandamos la ubicación por WhatsApp.</p></details>
+      <details><summary data-t="faq.q5">¿La pesca incluye licencia?</summary><p data-t="faq.a5">No. La licencia de pesca deportiva se tramita antes de salir; la carnada y el lunch tampoco van incluidos. Te decimos cómo sacarla al reservar.</p></details>
+      <details><summary data-t="faq.q6">¿Cuándo hay tiburón ballena?</summary><p data-t="faq.a6">Se ve en la Bahía de La Paz en temporada, que suele ir de otoño a primavera. El horario cambia cada día, así que conviene tener el día libre. Escríbenos y te decimos cómo va la semana.</p></details>
+      <details><summary data-t="faq.q7">¿Cómo aparto mi lugar?</summary><p data-t="faq.a7">Elige tu tour en el mapa, pon la fecha y cuántos van, y toca Apartar por WhatsApp: el mensaje sale listo. Maho's te confirma lugar y forma de pago.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="salida" id="salida" aria-labelledby="salida-title">
+  <div class="wrap salida__grid">
+    <div class="salida__info">
+      <p class="eyebrow" data-t="salida.eyebrow">Punto de salida</p>
+      <h2 id="salida-title" class="h2"><span data-t="salida.t1">Nos vemos</span> <strong data-t="salida.t2">en el malecón</strong></h2>
+      <div class="puntos" role="tablist" aria-label="Puntos de salida" data-t-attr="aria-label:salida.tabs">
+        <button class="punto" role="tab" aria-selected="true" data-punto="muelle"><span class="punto__name">Muelle Fiscal</span><span class="punto__who" data-t="salida.muelle">Compartido Espíritu Santo + Balandra · 11:00</span></button>
+        <button class="punto" role="tab" aria-selected="false" data-punto="marina"><span class="punto__name">Marina La Costa</span><span class="punto__who" data-t="salida.marina">Tours privados, pesca y yates</span></button>
+      </div>
+      <div class="salida__actions">
+        <a class="btn btn--accent js-dir" href="#" target="_blank" rel="noopener" data-t="salida.como">Cómo llegar</a>
+        <a class="btn btn--line js-wa" href="#" target="_blank" rel="noopener" data-t="salida.wa">Pedir ubicación por WhatsApp</a>
+      </div>
+      <div class="hours">
+        <p class="hours__state"><span class="dot" aria-hidden="true"></span><span class="js-estado">Contestando WhatsApp ahora</span></p>
+        <p class="hours__line js-horario">Todos los días · 8:00 a 20:00</p>
+      </div>
+    </div>
+    <div class="salida__map">
+      <iframe class="mapa" title="Mapa del punto de salida" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-src="https://www.google.com/maps?q=QUERY&z=15&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="cierre" aria-labelledby="cierre-title">
+  <div class="cierre__bg" aria-hidden="true"><img src="assets/img/cierre.webp" width="2047" height="455" loading="lazy" decoding="async" alt=""></div>
+  <div class="wrap cierre__in">
+    <h2 id="cierre-title" class="cierre__title"><span data-t="cierre.t1">¿Qué día</span> <strong data-t="cierre.t2">salimos?</strong></h2>
+    <p class="cierre__sub" data-t="cierre.sub">Dinos la fecha y cuántos van. Te contestamos con lugar, hora y punto de salida.</p>
+    <div class="cierre__ctas">
+      <a class="btn btn--accent js-wa" href="#" target="_blank" rel="noopener" data-t="cierre.cta">Escribir por WhatsApp</a>
+      <a class="btn btn--line-light" href="https://www.instagram.com/mahostours/" target="_blank" rel="noopener" data-t="cierre.ig">Fotos y reseñas en @mahostours</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <div>
+      <img class="foot__logo" src="assets/img/logo-mahos.svg" width="130" height="126" alt="Logo de Maho's Tours" loading="lazy" decoding="async">
+      <p class="foot__brand">MAHO'S TOURS · LA PAZ</p>
+      <p class="foot__small" data-t="foot.bio">Tours compartidos y privados en el Mar de Cortés. La Paz, Baja California Sur.</p>
+      <p class="foot__links"><a href="https://www.instagram.com/mahostours/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/Mahostours" target="_blank" rel="noopener">Facebook</a> · <a class="js-wa" href="#" target="_blank" rel="noopener">WhatsApp</a></p>
+    </div>
+    <div>
+      <p class="foot__k" data-t="foot.fotos">Fotos de referencia (Creative Commons)</p>
+      <p class="foot__small">Nathan Dugal (CC BY 2.0) · Rafael Saldaña (CC BY 2.0) · Constanza S. Mora (CC BY 2.0) · Comisión Mexicana de Filmaciones (CC BY-SA 2.0) · Javier Torres Lopez (CC BY-SA 2.0) · Joe (CC BY 2.0) · Manuel Cantero (CC BY-SA 2.0) · Diego Delso (CC BY-SA 4.0) · ProtoplasmaKid (CC BY-SA 4.0) · Carlos Valenzuela (CC BY-SA 4.0) · Shawn from Airdrie (CC BY-SA 2.0) · Kirt Edblom (CC BY-SA 2.0). Vía Flickr y Wikimedia Commons.</p>
+      <p class="foot__small foot__sign">Diseño y producción: <span class="js-firma">por definir</span></p>
+    </div>
+  </div>
+</footer>
+
+<nav class="actionbar" aria-label="Acciones rápidas" data-t-attr="aria-label:bar.label">
+  <a class="actionbar__main js-wa" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8.5c0 3.5 2.6 6.5 6.4 6.6l1-1.6-2-1-1 .9c-1-.4-2.2-1.6-2.6-2.6l.9-1-1-2z" fill="currentColor"/></svg>
+    <span data-t="bar.wa">Reservar</span>
+  </a>
+  <a class="js-tel" href="#">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5l3 .4 1.2 4-2 1.4a12 12 0 0 0 5.9 5.9l1.4-2 4 1.2.4 3c-.1 1.2-1.1 2.1-2.3 2.1A15.5 15.5 0 0 1 4.5 5.8c0-1.2.9-2.2 2.1-2.3z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+    <span data-t="bar.tel">Llamar</span>
+  </a>
+  <a href="#carta">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z M9 4v14 M15 6v14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+    <span data-t="bar.tours">Mapa</span>
+  </a>
+</nav>
+
+<script src="assets/datos.js"></script>
+<script src="assets/i18n.js"></script>
+<script src="assets/app.js" defer></script>
+</body>
+</html>
