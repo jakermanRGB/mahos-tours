@@ -64,7 +64,7 @@
       <button type="button" data-lang="es" aria-pressed="true">ES</button>
       <button type="button" data-lang="en" aria-pressed="false">EN</button>
     </div>
-    <a class="btn btn--accent btn--sm js-wa" href="#" target="_blank" rel="noopener" data-t="nav.reservar">Reservar</a>
+    <a class="btn btn--accent btn--sm js-wa js-sheet" href="#" target="_blank" rel="noopener" data-t="nav.reservar">Reservar</a>
   </div>
 </header>
 
@@ -102,6 +102,7 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8.5c0 3.5 2.6 6.5 6.4 6.6l1-1.6-2-1-1 .9c-1-.4-2.2-1.6-2.6-2.6l.9-1-1-2z" fill="currentColor"/></svg>
         <span data-t="plan.cta">Consultar por WhatsApp</span>
       </a>
+      <p class="wind wind--sm js-wind"></p>
       <button type="button" class="planner__map js-plan-map" data-t="plan.mapa">Ver la ruta en el mapa</button>
     </form>
   </div>
@@ -114,18 +115,17 @@
   </ul>
 </section>
 
-<section class="explora" aria-labelledby="explora-title">
+<section class="quien" aria-labelledby="quien-title">
   <div class="wrap">
-    <h2 id="explora-title" class="h-small" data-t="exp.title">Explora La Paz</h2>
-    <ul class="explora__row">
-      <li><button type="button" data-goto-tour="es-balandra"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 34c6-10 12-14 20-14s14 4 20 14"/><path d="M4 40c4-2 8-2 12 0s8 2 12 0 8-2 12 0"/><path d="M30 20c-1-6 2-10 6-12"/></svg><span data-t="exp.islas">Islas</span></button></li>
-      <li><button type="button" data-goto-tour="es-privado"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 30c4-10 14-14 22-12 5 1 8 4 10 8-4 0-6 2-8 4"/><path d="M12 30c-2 4-6 6-8 6 4 2 10 2 14-2"/><circle cx="34" cy="20" r="1.2"/><path d="M4 42c4-2 8-2 12 0s8 2 12 0 8-2 12 0"/></svg><span data-t="exp.lobos">Lobos marinos</span></button></li>
-      <li><button type="button" data-goto-tour="tiburon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 26c8-8 22-10 34-4l6-6v20l-6-6c-12 6-26 4-34-4z"/><circle cx="12" cy="24" r=".8"/><circle cx="18" cy="21" r=".8"/><circle cx="22" cy="27" r=".8"/><circle cx="27" cy="22" r=".8"/></svg><span data-t="exp.tiburon">Tiburón ballena</span></button></li>
-      <li><button type="button" data-goto-tour="balandra-privado"><svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="18" cy="18" rx="10" ry="7"/><path d="M28 18h8l4-4M8 18H4M18 25v10M12 40c4-3 8-3 12 0s8 3 12 0"/></svg><span data-t="exp.snorkel">Snorkel</span></button></li>
-      <li><button type="button" data-goto-tour="pesca"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 6v26a8 8 0 0 0 16 0v-4"/><path d="M8 6l30 6M38 12v18"/><path d="M34 30c2 2 4 4 4 8"/></svg><span data-t="exp.pesca">Pesca deportiva</span></button></li>
-      <li><button type="button" data-goto-tour="yates"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 32h40l-6 8H10z"/><path d="M12 32v-8h18l6 8M18 24v-6h8"/><path d="M4 44c4-2 8-2 12 0s8 2 12 0 8-2 12 0"/></svg><span data-t="exp.yates">Yates privados</span></button></li>
-      <li><button type="button" data-goto-tour="cerralvo"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 30c6-4 10-12 18-14s14 4 18 10"/><path d="M4 38c4-2 8-2 12 0s8 2 12 0 8-2 12 0"/><path d="M30 10l2-4 2 4"/></svg><span data-t="exp.cerralvo">Isla Cerralvo</span></button></li>
-    </ul>
+    <h2 id="quien-title" class="h-small" data-t="via.title">¿Con quién viajas?</h2>
+    <div class="quien__row" role="group" aria-label="¿Con quién viajas?" data-t-attr="aria-label:via.title">
+      <button type="button" class="qchip" data-q="familia" aria-pressed="false"><img src="assets/img/v-familia.webp" width="1200" height="900" alt="" loading="lazy" decoding="async"><span data-t="via.fam">Familia</span></button>
+      <button type="button" class="qchip" data-q="pareja" aria-pressed="false"><img src="assets/img/v-pareja.webp" width="1200" height="900" alt="" loading="lazy" decoding="async"><span data-t="via.par">Pareja</span></button>
+      <button type="button" class="qchip" data-q="amigos" aria-pressed="false"><img src="assets/img/v-amigos.webp" width="1200" height="900" alt="" loading="lazy" decoding="async"><span data-t="via.ami">Grupo de amigos</span></button>
+      <button type="button" class="qchip" data-q="mar" aria-pressed="false"><img src="assets/img/v-amantes.webp" width="1200" height="900" alt="" loading="lazy" decoding="async"><span data-t="via.ave">Amantes del mar</span></button>
+      <button type="button" class="qchip" data-q="pesca" aria-pressed="false"><img src="assets/img/t-pesca.webp" width="900" height="675" alt="" loading="lazy" decoding="async"><span data-t="via.pes">Pescadores</span></button>
+    </div>
+    <p class="quien__hint js-q-hint" aria-live="polite" data-t="via.hint">Elige y te ordenamos los tours que más te van.</p>
   </div>
 </section>
 
@@ -243,23 +243,12 @@
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8.5c0 3.5 2.6 6.5 6.4 6.6l1-1.6-2-1-1 .9c-1-.4-2.2-1.6-2.6-2.6l.9-1-1-2z" fill="currentColor"/></svg>
               <span data-t="book.cta">Apartar por WhatsApp</span>
             </a>
+            <p class="wind js-wind"></p>
             <p class="book__fine" data-t="book.fine">Te llega a WhatsApp con el tour, la fecha y las personas. Maho's confirma lugar y forma de pago.</p>
           </div>
         </form>
       </div>
     </article>
-  </div>
-</section>
-
-<section class="viaje" aria-labelledby="viaje-title">
-  <div class="wrap">
-    <h2 id="viaje-title" class="h-small" data-t="via.title">¿Con quién viajas?</h2>
-    <div class="viaje__grid">
-      <button type="button" class="vcard reveal" data-goto-tour="es-balandra"><img src="assets/img/v-familia.webp" width="1200" height="900" loading="lazy" decoding="async" alt=""><span class="vcard__t" data-t="via.fam">Familia</span><span class="vcard__s" data-t="via.fam.s">Compartido · menores $1,200</span></button>
-      <button type="button" class="vcard reveal" data-goto-tour="balandra-privado"><img src="assets/img/v-pareja.webp" width="1200" height="900" loading="lazy" decoding="async" alt=""><span class="vcard__t" data-t="via.par">Pareja</span><span class="vcard__s" data-t="via.par.s">Balandra privado</span></button>
-      <button type="button" class="vcard reveal" data-goto-tour="yates"><img src="assets/img/v-amigos.webp" width="1200" height="900" loading="lazy" decoding="async" alt=""><span class="vcard__t" data-t="via.ami">Grupo de amigos</span><span class="vcard__s" data-t="via.ami.s">Yate para 8, 12 o 15</span></button>
-      <button type="button" class="vcard reveal" data-goto-tour="tiburon"><img src="assets/img/v-amantes.webp" width="1200" height="900" loading="lazy" decoding="async" alt=""><span class="vcard__t" data-t="via.ave">Amantes del mar</span><span class="vcard__s" data-t="via.ave.s">Tiburón ballena y lobos</span></button>
-    </div>
   </div>
 </section>
 
@@ -277,37 +266,40 @@
         <p class="boat__cap"><span>12</span> <span data-t="yates.personas">personas</span></p>
         <h3 class="boat__name">Sea Ray 40</h3>
         <p class="boat__price"><strong>$32,000</strong> <span>MXN</span></p>
+        <p class="boat__pp js-boat-pp" data-boat="sea-ray-40"></p>
         <ul class="ticks ticks--light">
           <li data-t="yates.sr1">Baño y camarote</li>
           <li data-t="yates.sr2">Capitán, chef y marinero</li>
           <li data-t="yates.sr3">Pesca en el trayecto</li>
           <li data-t="yates.sr4">Tapete flotante, dinghy, equipo de playa, snorkel y pesca</li>
         </ul>
-        <a class="btn btn--line-light js-wa" href="#" target="_blank" rel="noopener" data-wa-extra-es="Me interesa el Sea Ray 40 (8 horas)." data-wa-extra-en="I'm interested in the Sea Ray 40 (8 hours)." data-t="yates.apartar1">Apartar el Sea Ray 40</a>
+        <a class="btn btn--line-light js-wa js-sheet" data-tour="yate:sea-ray-40" href="#" target="_blank" rel="noopener" data-wa-extra-es="Me interesa el Sea Ray 40 (8 horas)." data-wa-extra-en="I'm interested in the Sea Ray 40 (8 hours)." data-t="yates.apartar1">Apartar el Sea Ray 40</a>
       </article>
       <article class="boat boat--big reveal">
         <p class="boat__cap"><span>15</span> <span data-t="yates.personas2">personas</span></p>
         <h3 class="boat__name">Chris Craft 45</h3>
         <p class="boat__price"><strong>$30,000</strong> <span>MXN</span></p>
+        <p class="boat__pp js-boat-pp" data-boat="chris-craft-45"></p>
         <ul class="ticks ticks--light">
           <li data-t="yates.cc1">Baño y camarote</li>
           <li data-t="yates.cc2">Capitán, chef y marinero</li>
           <li data-t="yates.cc3">Pesca en el trayecto</li>
           <li data-t="yates.cc4">Tapete flotante, dinghy, equipo de playa, snorkel y pesca</li>
         </ul>
-        <a class="btn btn--accent js-wa" href="#" target="_blank" rel="noopener" data-wa-extra-es="Me interesa el Chris Craft 45 (8 horas)." data-wa-extra-en="I'm interested in the Chris Craft 45 (8 hours)." data-t="yates.apartar2">Apartar el Chris Craft 45</a>
+        <a class="btn btn--accent js-wa js-sheet" data-tour="yate:chris-craft-45" href="#" target="_blank" rel="noopener" data-wa-extra-es="Me interesa el Chris Craft 45 (8 horas)." data-wa-extra-en="I'm interested in the Chris Craft 45 (8 hours)." data-t="yates.apartar2">Apartar el Chris Craft 45</a>
       </article>
       <article class="boat reveal">
         <p class="boat__cap"><span>8</span> <span data-t="yates.personas3">personas</span></p>
         <h3 class="boat__name" data-t="yates.y8">Yate privado</h3>
         <p class="boat__price"><strong>$26,500</strong> <span>MXN</span></p>
+        <p class="boat__pp js-boat-pp" data-boat="yate-8"></p>
         <ul class="ticks ticks--light">
           <li data-t="yates.y1">Baño</li>
           <li data-t="yates.y2">Capitán, chef y marinero</li>
           <li data-t="yates.y3">Café y pan dulce, fruta, ceviche, sashimi y totopos</li>
           <li data-t="yates.y4">Hielo, aguas, sodas y cervezas</li>
         </ul>
-        <a class="btn btn--line-light js-wa" href="#" target="_blank" rel="noopener" data-wa-extra-es="Me interesa el yate privado para 8 personas (8 horas)." data-wa-extra-en="I'm interested in the private yacht for 8 (8 hours)." data-t="yates.apartar3">Apartar el yate de 8</a>
+        <a class="btn btn--line-light js-wa js-sheet" data-tour="yate:yate-8" href="#" target="_blank" rel="noopener" data-wa-extra-es="Me interesa el yate privado para 8 personas (8 horas)." data-wa-extra-en="I'm interested in the private yacht for 8 (8 hours)." data-t="yates.apartar3">Apartar el yate de 8</a>
       </article>
     </div>
     <div class="manifest">
@@ -415,7 +407,7 @@
     <h2 id="cierre-title" class="cierre__title"><span data-t="cierre.t1">¿Qué día</span> <strong data-t="cierre.t2">salimos?</strong></h2>
     <p class="cierre__sub" data-t="cierre.sub">Dinos la fecha y cuántos van. Te contestamos con lugar, hora y punto de salida.</p>
     <div class="cierre__ctas">
-      <a class="btn btn--accent js-wa" href="#" target="_blank" rel="noopener" data-t="cierre.cta">Escribir por WhatsApp</a>
+      <a class="btn btn--accent js-wa js-sheet" href="#" target="_blank" rel="noopener" data-t="cierre.cta">Escribir por WhatsApp</a>
       <a class="btn btn--line-light" href="https://www.instagram.com/mahostours/" target="_blank" rel="noopener" data-t="cierre.ig">Fotos y reseñas en @mahostours</a>
     </div>
   </div>
@@ -439,7 +431,7 @@
 </footer>
 
 <nav class="actionbar" aria-label="Acciones rápidas" data-t-attr="aria-label:bar.label">
-  <a class="actionbar__main js-wa" href="#" target="_blank" rel="noopener">
+  <a class="actionbar__main js-wa js-sheet" href="#" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8.5c0 3.5 2.6 6.5 6.4 6.6l1-1.6-2-1-1 .9c-1-.4-2.2-1.6-2.6-2.6l.9-1-1-2z" fill="currentColor"/></svg>
     <span data-t="bar.wa">Reservar</span>
   </a>
@@ -452,6 +444,35 @@
     <span data-t="bar.tours">Mapa</span>
   </a>
 </nav>
+
+
+<dialog class="sheet" id="sheet" aria-labelledby="sheet-title">
+  <form class="sheet__in" onsubmit="return false">
+    <div class="sheet__grab" aria-hidden="true"></div>
+    <header class="sheet__head">
+      <h2 id="sheet-title" class="sheet__title" data-t="sh.title">Aparta tu lugar</h2>
+      <button type="button" class="sheet__x js-sheet-close" aria-label="Cerrar" data-t-attr="aria-label:sh.close">×</button>
+    </header>
+    <div class="sheet__tour">
+      <img class="sheet__img js-sh-img" src="assets/img/g-balandra-2.webp" width="1200" height="900" alt="">
+      <label class="pfield"><span data-t="plan.tour">Tour</span><select class="js-sh-tour"></select></label>
+    </div>
+    <label class="pfield"><span data-t="plan.fecha">Fecha</span><input type="date" class="js-sh-fecha"></label>
+    <div class="sheet__people js-sh-people"></div>
+    <div class="sheet__sum">
+      <span class="sheet__sumk" data-t="book.total">Total estimado</span>
+      <strong class="js-sh-total">$2,600 MXN</strong>
+      <span class="sheet__pp js-sh-pp"></span>
+    </div>
+    <a class="btn btn--accent btn--block js-sh-go" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8.5c0 3.5 2.6 6.5 6.4 6.6l1-1.6-2-1-1 .9c-1-.4-2.2-1.6-2.6-2.6l.9-1-1-2z" fill="currentColor"/></svg>
+      <span data-t="sh.cta">Enviar por WhatsApp</span>
+    </a>
+    <p class="wind js-wind"></p>
+    <p class="sheet__fine" data-t="book.fine">Te llega a WhatsApp con el tour, la fecha y las personas. Maho's confirma lugar y forma de pago.</p>
+    <button type="button" class="planner__map js-sh-map" data-t="plan.mapa">Ver la ruta en el mapa</button>
+  </form>
+</dialog>
 
 <script src="assets/datos.js"></script>
 <script src="assets/i18n.js"></script>

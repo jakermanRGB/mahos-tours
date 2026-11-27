@@ -18,6 +18,10 @@ const UI = {
     horario: 'Todos los días · 8:00 a 20:00 (horario de muestra)', yateChip: 'Yate de día completo',
     desde: 'Desde', por_persona: 'por persona', por_barco: 'por embarcación', total_est: 'total estimado',
     verruta: 'Ver ruta', reservar: 'Reservar', sale: 'Sale de', km: 'km del malecón', km_v: 'km desde La Ventana',
+    cu: (m, p) => `o ${m} c/u si van ${p}`, cu_desde: (m, p) => `desde ${m} c/u si van ${p}`, aprox_pp: (m) => `≈ ${m} por persona`, pp: (m) => `${m} por persona`,
+    boat_pp: (m, p) => `≈ ${m} por persona si van ${p}`, primera: 'Ideal para tu primera vez', recom: 'Lo más recomendado',
+    viento: '¿Viento? Si Capitanía de Puerto cierra la navegación, cambiamos tu fecha.', cerr_priv: 'Isla Cerralvo (privado)',
+    hint: { familia: 'Para ir con niños: compartido con precio de menor, tiburón ballena y Balandra.', pareja: 'Para dos: privados, agua clara y playa a su ritmo.', amigos: 'Para el grupo: yates con capitán, chef y bebidas; sale más barato por cabeza.', mar: 'Para nadar con fauna: tiburón ballena, mobulas y lobos marinos.', pesca: 'Para pescar: lancha privada desde las 6:30 a.m.' },
     msg: (t) => `Tour: ${t.tour}. Fecha: ${t.fecha}. ${t.gente}. Total estimado: ${t.total}.`,
     gente_ad: (a, m) => `Personas: ${a} adulto${a === 1 ? '' : 's'}${m ? `, ${m} menor${m === 1 ? '' : 'es'}` : ''}`,
     gente: (p) => `Personas: ${p}`
@@ -31,6 +35,10 @@ const UI = {
     horario: 'Every day · 8 a.m. to 8 p.m. (sample hours)', yateChip: 'Full-day yacht',
     desde: 'From', por_persona: 'per person', por_barco: 'per boat', total_est: 'estimated total',
     verruta: 'See route', reservar: 'Book', sale: 'Departs', km: 'km from the boardwalk', km_v: 'km from La Ventana',
+    cu: (m, p) => `or ${m} each for ${p}`, cu_desde: (m, p) => `from ${m} each for ${p}`, aprox_pp: (m) => `≈ ${m} per person`, pp: (m) => `${m} per person`,
+    boat_pp: (m, p) => `≈ ${m} per person for ${p}`, primera: 'Best for first-timers', recom: 'Top pick',
+    viento: 'Windy? If the Port Captain closes the harbor, we move your date.', cerr_priv: 'Cerralvo Island (private)',
+    hint: { familia: 'With kids: the shared tour with kids pricing, whale sharks and Balandra.', pareja: 'For two: private tours, clear water and a beach at your pace.', amigos: 'For the crew: yachts with a captain, chef and drinks; cheaper per head.', mar: 'To swim with wildlife: whale sharks, mobula rays and sea lions.', pesca: 'To fish: a private boat from 6:30 a.m.' },
     msg: (t) => `Tour: ${t.tour}. Date: ${t.fecha}. ${t.gente}. Estimated total: ${t.total}.`,
     gente_ad: (a, m) => `Guests: ${a} adult${a === 1 ? '' : 's'}${m ? `, ${m} kid${m === 1 ? '' : 's'}` : ''}`,
     gente: (p) => `Guests: ${p}`
@@ -40,6 +48,21 @@ const u = () => UI[lang];
 const money = (n) => '$' + new Intl.NumberFormat(lang === 'en' ? 'en-US' : 'es-MX', { maximumFractionDigits: 0 }).format(n) + ' MXN';
 const waLink = (extra = '') => `https://wa.me/${N.whatsapp}?text=${encodeURIComponent(N.wa_mensaje[lang] + (extra ? ' ' + extra : ''))}`;
 const dirLink = (q) => `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(q)}`;
+function track(name, data = {}) {
+  try {
+    if (window.gtag) gtag('event', name, data);
+    if (window.fbq) fbq('trackCustom', name, data);
+    if (window.va) va('event', { name, data });
+    (window.dataLayer = window.dataLayer || []).push({ event: name, ...data });
+  } catch (e) {}
+}
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="https://wa.me/"], a[href^="tel:"], a[href*="google.com/maps/dir"]');
+  if (!a || a.classList.contains('js-sheet')) return;
+  const kind = a.href.startsWith('tel:') ? 'llamar' : a.href.includes('maps/dir') ? 'como_llegar' : 'whatsapp';
+  const m = decodeURIComponent(a.href).match(/Tour: ([^.]+)\./);
+  track('clic_' + kind, { tour: m ? m[1] : '', lugar: a.className.split(' ')[0] || a.tagName });
+}, true);
 function paintLinks() {
   $$('.js-wa').forEach(a => { a.href = waLink(a.dataset['waExtra' + (lang === 'en' ? 'En' : 'Es')] || ''); });
   $$('.js-tel').forEach(a => { a.href = `tel:${N.telefono}`; });
@@ -97,6 +120,12 @@ const yateById = (id) => N.yates.find(y => y.id === id);
 const yName = (y) => typeof y.nombre === 'string' ? y.nombre : y.nombre[lang];
 const tipoLabel = (t) => t.id === 'cerralvo' ? u().mixto : u()[t.tipo];
 const fromPrice = (t) => t.id === 'yates' ? Math.min(...N.yates.map(y => y.precio)) : t.precios[0].monto;
+function ppLine(t) {
+  if (t.id === 'balandra-privado') return u().cu(money(Math.round(12000 / 6)), 6);
+  if (t.id === 'pesca') return u().cu(money(Math.round(totalFor('pesca', 4) / 4)), 4);
+  if (t.id === 'yates') { const best = N.yates.reduce((b, y) => (y.precio / y.personas < b.precio / b.personas ? y : b)); return u().cu_desde(money(Math.round(best.precio / best.personas)), best.personas); }
+  return '';
+}
 const perPerson = (t) => t.id === 'es-balandra' || t.id === 'tiburon' || t.id === 'cerralvo';
 function totalFor(id, p, extra = {}) {
   const a = extra.adultos ?? p, m = extra.menores ?? 0;
@@ -514,6 +543,7 @@ function goToTour(id) {
   $('#carta').scrollIntoView({ behavior: RM.matches ? 'auto' : 'smooth' });
 }
 addEventListener('popstate', e => {
+  if (window.__sheetPop && window.__sheetPop(e)) return;
   const st = e.state;
   if (!st || !st.mt) return;
   chartSeen = true;
@@ -552,20 +582,29 @@ const ICO = {
   pin: '<svg viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>',
   ppl: '<svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c.5-4 3-6 6-6s5.5 2 6 6M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2 .6 3 2.6 3.3 6"/></svg>'
 };
+const QORDER = {
+  familia: ['es-balandra', 'tiburon', 'balandra-privado', 'es-privado', 'cerralvo', 'yates', 'pesca'],
+  pareja: ['balandra-privado', 'es-privado', 'es-balandra', 'tiburon', 'yates', 'cerralvo', 'pesca'],
+  amigos: ['yates', 'es-privado', 'balandra-privado', 'es-balandra', 'cerralvo', 'tiburon', 'pesca'],
+  mar: ['tiburon', 'cerralvo', 'es-balandra', 'es-privado', 'balandra-privado', 'yates', 'pesca'],
+  pesca: ['pesca', 'yates', 'es-privado', 'balandra-privado', 'es-balandra', 'tiburon', 'cerralvo']
+};
+let quien = null;
 function renderCards() {
   const ul = $('.js-cards'); ul.textContent = '';
-  ORDER.forEach(id => {
+  (quien ? QORDER[quien] : ORDER).forEach((id, idx) => {
     const t = TOURS[id];
     const liEl = document.createElement('li'); liEl.className = 'card';
     const priv = t.tipo !== 'compartido';
     const cap = t.id === 'yates' ? '8 · 12 · 15' : t.capacidad ? `${u().hasta} ${t.capacidad}` : '';
     const sal = t.id === 'cerralvo' ? 'La Ventana' : N.salidas[t.salida].nombre[lang];
     liEl.innerHTML = `
-      <div class="card__img"><div class="gal">${GAL[id].map((g, n) => `<img src="assets/img/${g}.webp" alt="" loading="lazy" decoding="async" width="1200" height="900">`).join('')}</div>${GAL[id].length > 1 ? `<button type="button" class="gal__nav gal__nav--prev" tabindex="-1" aria-hidden="true">‹</button><button type="button" class="gal__nav gal__nav--next" tabindex="-1" aria-hidden="true">›</button><div class="gal__dots" aria-hidden="true">${GAL[id].map((_, n) => `<i class="${n ? '' : 'on'}"></i>`).join('')}</div>` : ''}<span class="card__tag${priv ? ' card__tag--priv' : ''}"></span></div>
+      <div class="card__img"><div class="gal">${GAL[id].map((g, n) => `<img src="assets/img/${g}.webp" alt="" loading="lazy" decoding="async" width="1200" height="900">`).join('')}</div>${GAL[id].length > 1 ? `<button type="button" class="gal__nav gal__nav--prev" tabindex="-1" aria-hidden="true">‹</button><button type="button" class="gal__nav gal__nav--next" tabindex="-1" aria-hidden="true">›</button><div class="gal__dots" aria-hidden="true">${GAL[id].map((_, n) => `<i class="${n ? '' : 'on'}"></i>`).join('')}</div>` : ''}<span class="card__tag${priv ? ' card__tag--priv' : ''}"></span>${(quien && idx === 0) || (!quien && id === 'es-balandra') ? '<span class="card__badge"></span>' : ''}</div>
       <div class="card__body">
         <h3 class="card__name"></h3>
         <p class="card__meta"><span>${ICO.time}<b class="m1"></b></span><span>${ICO.pin}<b class="m2"></b></span>${cap ? `<span>${ICO.ppl}<b class="m3"></b></span>` : ''}</p>
         <p class="card__price"><small></small><strong></strong><em></em></p>
+        <p class="card__pp"></p>
         <div class="card__btns"><button type="button" class="btn btn--line js-route"></button><a class="btn btn--accent" target="_blank" rel="noopener"></a></div>
       </div>`;
     $('.card__tag', liEl).textContent = t.id === 'yates' ? u().yates_c : tipoLabel(t);
@@ -576,6 +615,8 @@ function renderCards() {
     $('.card__price small', liEl).textContent = u().desde;
     $('.card__price strong', liEl).textContent = money(fromPrice(t));
     $('.card__price em', liEl).textContent = perPerson(t) ? u().por_persona : u().por_barco;
+    const pp = ppLine(t); const ppEl = $('.card__pp', liEl); if (pp) ppEl.textContent = pp; else ppEl.remove();
+    const badge = $('.card__badge', liEl); if (badge) badge.textContent = quien ? u().recom : u().primera;
     $$('.gal img', liEl).forEach((im, n) => { im.alt = `${t.nombre[lang]} · ${n + 1}/${GAL[id].length}`; });
     const gal = $('.gal', liEl), dots = $$('.gal__dots i', liEl);
     if (dots.length) {
@@ -586,7 +627,8 @@ function renderCards() {
       $('.gal__nav--next', liEl).addEventListener('click', e => { e.stopPropagation(); go(1); });
     }
     const rb = $('.js-route', liEl); rb.textContent = u().verruta; rb.addEventListener('click', () => goToTour(id));
-    const a = $('a', liEl); a.textContent = u().reservar; a.href = waLink(`Tour: ${t.id === 'yates' ? u().yateChip : t.nombre[lang]}.`);
+    const a = $('.card__btns a', liEl); a.textContent = u().reservar; a.href = waLink(`Tour: ${t.id === 'yates' ? u().yateChip : t.nombre[lang]}.`);
+    a.classList.add('js-sheet'); a.dataset.tour = t.id === 'yates' ? 'yate:chris-craft-45' : id;
     ul.appendChild(liEl);
   });
 }
@@ -598,8 +640,17 @@ $('.js-next').addEventListener('click', () => stepCards(1));
 /* ---------- planeador del hero ---------- */
 const PLAN = () => [
   ...ORDER.filter(id => id !== 'yates').map(id => ({ v: id, t: TOURS[id].nombre[lang] + (id === 'cerralvo' ? ` (${u().compartido})` : '') })),
+  { v: 'cerralvo:privado', t: u().cerr_priv },
   ...N.yates.map(y => ({ v: 'yate:' + y.id, t: `${yName(y)} · ${u().hasta} ${y.personas}` }))
 ];
+function optInfo(v, p, a, m) {
+  if (v.startsWith('yate:')) { const b = v.slice(5), y = yateById(b); return { id: 'yates', barco: b, tot: y.precio, label: `${yName(y)}, 8 h`, max: y.personas, group: true }; }
+  if (v === 'cerralvo:privado') return { id: 'cerralvo', modo: 'privado', tot: 10000, label: tourLabel(TOURS.cerralvo, 'privado'), max: 6, group: true };
+  const t = TOURS[v];
+  const max = v === 'pesca' ? 4 : v === 'balandra-privado' ? 6 : 20;
+  const tot = v === 'es-balandra' && a !== undefined ? totalFor(v, a + m, { adultos: a, menores: m }) : totalFor(v, p, { modo: 'compartido' });
+  return { id: v, modo: 'compartido', tot, label: tourLabel(t, 'compartido'), max, group: !perPerson(t) };
+}
 const planSel = $('.js-plan-tour'), planP = $('.js-plan-personas'), planF = $('.js-plan-fecha');
 planF.min = today;
 function renderPlanOptions() {
@@ -629,6 +680,104 @@ $('.js-plan-map').addEventListener('click', () => {
   if (i.barco) state.barco = i.barco;
   goToTour(i.id);
 });
+
+/* ---------- hoja de reserva (todos los botones de Reservar) ---------- */
+const sheet = $('#sheet');
+const sh = { v: 'es-balandra', fecha: '', personas: 2, adultos: 2, menores: 0 };
+const shSel = $('.js-sh-tour'), shF = $('.js-sh-fecha');
+shF.min = today;
+const SH_IMG = (v) => v.startsWith('yate:') ? 't-yates' : v === 'cerralvo:privado' ? GAL.cerralvo[0] : (GAL[v] || ['t-es'])[0];
+function shStepper(key, label, min, max) {
+  const wrap = document.createElement('div'); wrap.className = 'stepper';
+  const id = 'sh-' + key;
+  wrap.innerHTML = `<span id="${id}"></span><div class="stepper__ctl" role="group" aria-labelledby="${id}"><button type="button" aria-label="−">−</button><output aria-live="polite"></output><button type="button" aria-label="+">+</button></div>`;
+  wrap.firstChild.textContent = label;
+  const [minus, plus] = $$('button', wrap), out = $('output', wrap);
+  sh[key] = Math.min(max, Math.max(min, sh[key]));
+  const sync = () => { out.textContent = sh[key]; minus.disabled = sh[key] <= min; plus.disabled = sh[key] >= max; };
+  minus.addEventListener('click', () => { sh[key] = Math.max(min, sh[key] - 1); sync(); shUpdate(); });
+  plus.addEventListener('click', () => { sh[key] = Math.min(max, sh[key] + 1); sync(); shUpdate(); });
+  sync(); return wrap;
+}
+function shRender() {
+  shSel.textContent = '';
+  PLAN().forEach(o => { const op = document.createElement('option'); op.value = o.v; op.textContent = o.t; shSel.appendChild(op); });
+  shSel.value = sh.v;
+  const box = $('.js-sh-people'); box.textContent = '';
+  const info = optInfo(sh.v, sh.personas);
+  if (sh.v === 'es-balandra') { box.appendChild(shStepper('adultos', u().adultos, 1, 20)); box.appendChild(shStepper('menores', u().menores, 0, 20)); }
+  else box.appendChild(shStepper('personas', sh.v === 'pesca' ? u().anglers : u().personas, 1, info.max));
+  const img = $('.js-sh-img'); img.src = `assets/img/${SH_IMG(sh.v)}.webp`;
+  shUpdate();
+}
+function shUpdate() {
+  const isEB = sh.v === 'es-balandra';
+  const people = isEB ? sh.adultos + sh.menores : sh.personas;
+  const i = optInfo(sh.v, sh.personas, isEB ? sh.adultos : undefined, sh.menores);
+  $('.js-sh-total').textContent = money(i.tot);
+  const full = i.group && people < i.max && i.max <= 15 ? ' · ' + u().cu(money(Math.round(i.tot / i.max)), i.max) : '';
+  $('.js-sh-pp').textContent = i.group ? u().aprox_pp(money(Math.round(i.tot / people))) + full : (isEB ? '' : u().pp(money(Math.round(i.tot / people))));
+  const gente = isEB ? u().gente_ad(sh.adultos, sh.menores) : u().gente(sh.personas);
+  $('.js-sh-go').href = waLink(u().msg({ tour: i.label, fecha: fmtFecha(sh.fecha), gente, total: money(i.tot) }));
+}
+shSel.addEventListener('change', () => { sh.v = shSel.value; shRender(); });
+shF.addEventListener('change', () => { sh.fecha = shF.value; shUpdate(); });
+let sheetClosingByCode = false;
+function openSheet(v) {
+  if (v) sh.v = v;
+  if (!sh.fecha && planF.value) sh.fecha = planF.value;
+  shF.value = sh.fecha;
+  shRender();
+  if (typeof sheet.showModal !== 'function') { location.href = $('.js-sh-go').href; return; }
+  sheet.showModal();
+  document.documentElement.classList.add('sheet-open');
+  try { history.pushState({ ...(history.state || {}), sheet: 1 }, ''); } catch (e) {}
+  track('abrir_reserva', { tour: sh.v });
+}
+function closeSheet() {
+  if (!sheet.open) return;
+  sheet.close();
+}
+sheet.addEventListener('close', () => {
+  document.documentElement.classList.remove('sheet-open');
+  if (history.state && history.state.sheet) { sheetClosingByCode = true; history.back(); }
+});
+window.__sheetPop = () => {
+  if (sheetClosingByCode) { sheetClosingByCode = false; return true; }
+  if (sheet.open) { sheet.close(); return true; }
+  return false;
+};
+$('.js-sheet-close').addEventListener('click', closeSheet);
+sheet.addEventListener('click', e => { if (e.target === sheet) closeSheet(); });
+document.addEventListener('click', e => {
+  const b = e.target.closest('.js-sheet');
+  if (!b) return;
+  e.preventDefault(); e.stopPropagation();
+  openSheet(b.dataset.tour || (state.tour !== 'todos' ? (state.tour === 'yates' ? 'yate:' + state.barco : state.tour) : planSel.value));
+});
+$('.js-sh-map').addEventListener('click', () => {
+  const i = optInfo(sh.v, sh.personas);
+  state.fecha = sh.fecha; state.personas = sh.v === 'es-balandra' ? sh.adultos + sh.menores : sh.personas; state.adultos = sh.adultos; state.menores = sh.menores;
+  if (i.barco) state.barco = i.barco; if (i.modo) state.modo = i.modo;
+  sheet.close();
+  setTimeout(() => goToTour(i.id), 60);
+});
+
+/* ---------- ¿con quién viajas? (filtro de tours) ---------- */
+$$('.qchip').forEach(b => b.addEventListener('click', () => {
+  quien = quien === b.dataset.q ? null : b.dataset.q;
+  $$('.qchip').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.q === quien)));
+  $('.js-q-hint').textContent = quien ? u().hint[quien] : ((window.I18N[lang] || {})['via.hint'] || 'Elige y te ordenamos los tours que más te van.');
+  renderCards(); $('.js-cards').scrollTo({ left: 0 });
+  if (quien) $('#tours').scrollIntoView({ behavior: RM.matches ? 'auto' : 'smooth' });
+  track('filtro_quien', { quien: quien || 'todos' });
+}));
+
+/* ---------- precio por persona en yates y línea de viento ---------- */
+function paintExtras() {
+  $$('.js-boat-pp').forEach(p => { const y = yateById(p.dataset.boat); p.textContent = u().boat_pp(money(Math.round(y.precio / y.personas)), y.personas); });
+  $$('.js-wind').forEach(p => { p.textContent = u().viento; });
+}
 
 /* ---------- preguntas: una abierta a la vez ---------- */
 $$('.faq details').forEach(d => d.addEventListener('toggle', () => {
@@ -705,7 +854,9 @@ document.addEventListener('visibilitychange', () => document.body.classList.togg
 RM.addEventListener('change', () => { if (chartSeen) selectTour(state.tour, { instant: true, silent: true }); heroImg.style.removeProperty('--hp'); });
 
 document.addEventListener('langchange', () => {
-  paintLinks(); renderChips(); renderCards(); renderPlanOptions(); renderDetail(false); drawPlaces(); paintHours();
+  paintLinks(); renderChips(); renderCards(); renderPlanOptions(); renderDetail(false); drawPlaces(); paintHours(); paintExtras();
+  if (quien) $('.js-q-hint').textContent = u().hint[quien];
+  shRender();
   if (chartSeen) selectTour(state.tour, { instant: true, silent: true });
 });
 drawBase();
