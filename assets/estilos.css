@@ -581,3 +581,9 @@ button{-webkit-appearance:none;appearance:none}
   .vcard.qchip .vcard__s{display:none}
   .vcard.qchip[aria-pressed="true"]::before{width:24px;height:24px;font-size:13px;line-height:24px;top:8px;right:8px}
 }
+
+/* Safari iOS: el campo de fecha no se sale de su caja */
+.pfield,.field{min-width:0}
+.pfield input[type="date"],.field input[type="date"]{-webkit-appearance:none;appearance:none;display:block;min-width:0;max-width:100%;text-align:left;line-height:46px}
+.pfield input[type="date"]::-webkit-date-and-time-value{text-align:left}
+@media (max-width:720px){.hero__img{object-position:50% 40%}}
