@@ -563,3 +563,21 @@ html.sheet-open{overflow:hidden}
 .vcard.qchip[aria-pressed="true"]::before{content:"✓";position:absolute;top:12px;right:12px;z-index:2;width:30px;height:30px;border-radius:50%;background:var(--sun);color:var(--navy);font:700 16px/30px var(--head);text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.2)}
 .quien__hint{text-align:center;color:var(--muted);font-size:15px;margin:16px auto 0;max-width:56ch;min-height:1.6em}
 @media (max-width:860px){.viaje.quien{padding:40px 0 0}.quien__hint{text-align:left;font-size:14px;margin-top:8px}}
+
+/* Safari: sin estilo nativo de botón en tarjetas y chips */
+button{-webkit-appearance:none;appearance:none}
+.vcard,.dcard,.chip,.punto,.qchip,.explora__row button,.dests li button{-webkit-appearance:none;appearance:none;border-style:solid}
+.vcard,.dcard{border:0}
+/* ¿Con quién viajas?: compactas y de altura fija */
+.viaje.quien .viaje__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;overflow:visible;margin:0;padding:0}
+.vcard.qchip{aspect-ratio:auto;height:170px;width:auto;flex:none;padding:14px 16px;border-radius:16px}
+.vcard.qchip img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover}
+.vcard.qchip .vcard__t{font-size:18px}
+.vcard.qchip .vcard__s{font-size:13px}
+@media (max-width:860px){
+  .viaje.quien .viaje__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .vcard.qchip{height:112px;padding:10px 12px;border-radius:14px}
+  .vcard.qchip .vcard__t{font-size:15.5px}
+  .vcard.qchip .vcard__s{display:none}
+  .vcard.qchip[aria-pressed="true"]::before{width:24px;height:24px;font-size:13px;line-height:24px;top:8px;right:8px}
+}
