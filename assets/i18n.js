@@ -1,7 +1,7 @@
 /* English copy. Spanish lives in the HTML. */
 window.I18N = {
   en: {
-    "_title": "Maho's Tours La Paz · Espíritu Santo, Balandra & private yacht tours",
+    "_title": "La Paz Boat Tours: Espíritu Santo & Whale Sharks | Maho\'s Tours",
     "skip": "Skip to content",
     "demo.strip": "Design proposal for Maho's Tours La Paz",
     "demo.short": "Design proposal · Maho's Tours",
@@ -14,8 +14,8 @@ window.I18N = {
     "nav.salida": "Meeting point",
     "nav.reservar": "Book",
     "hero.coord": "Boat tours · La Paz, Baja California Sur",
-    "hero.t1": "Espíritu Santo Island,",
-    "hero.t2": "Balandra and the sea lions",
+    "hero.t1": "Espíritu Santo & Balandra",
+    "hero.t2": "Swim with sea lions in the Sea of Cortez",
     "plan.title": "Plan your day on the water",
     "plan.tour": "Tour",
     "plan.fecha": "Date",

@@ -3,17 +3,31 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Maho's Tours La Paz · Tours a Isla Espíritu Santo, Balandra y yates privados</title>
-<meta name="description" content="Tours compartidos y privados desde el malecón de La Paz: Isla Espíritu Santo con lobos marinos, Balandra, Isla Cerralvo, tiburón ballena, pesca deportiva y yates con capitán y chef. Compartido desde $1,300 MXN.">
+<title>Tours en La Paz: Espíritu Santo y tiburón ballena | Maho's Tours</title>
+<meta name="description" content="Tours en barco desde el malecón de La Paz: Isla Espíritu Santo, Balandra, tiburón ballena, Cerralvo y yates. Desde $1,300 MXN. Reserva por WhatsApp.">
 <!-- DEMO: quitar noindex al publicar la versión final -->
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#ffffff">
 <!-- DEPLOY STEP: og:url y og:image necesitan la URL absoluta en vivo -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Maho's Tours La Paz">
-<meta property="og:description" content="Isla Espíritu Santo, Balandra, Cerralvo y tiburón ballena. Tours compartidos y privados desde el malecón de La Paz.">
+<meta property="og:title" content="Maho's Tours La Paz · Isla Espíritu Santo, Balandra y tiburón ballena">
+<meta property="og:description" content="Tours compartidos y privados desde el malecón de La Paz. Elige tu tour, mira la ruta en el mapa y aparta por WhatsApp.">
 <meta property="og:url" content="https://jakermanrgb.github.io/mahos-tours/">
 <meta property="og:image" content="https://jakermanrgb.github.io/mahos-tours/assets/img/og.jpg">
+<meta property="og:site_name" content="Maho's Tours La Paz">
+<meta property="og:locale" content="es_MX">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Agua turquesa de playa Balandra, La Paz, con el logo de Maho's Tours">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jakermanrgb.github.io/mahos-tours/">
+<link rel="alternate" hreflang="es-MX" href="https://jakermanrgb.github.io/mahos-tours/">
+<link rel="alternate" hreflang="en" href="https://jakermanrgb.github.io/mahos-tours/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://jakermanrgb.github.io/mahos-tours/">
+<meta name="geo.region" content="MX-BCS">
+<meta name="geo.placename" content="La Paz">
+
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,20 +35,322 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Kaushan+Script&display=swap">
 <link rel="preload" as="image" href="assets/img/hero.webp" media="(min-width: 721px)" fetchpriority="high">
 <link rel="preload" as="image" href="assets/img/hero-m.webp" media="(max-width: 720px)" fetchpriority="high">
-<link rel="stylesheet" href="assets/estilos.css?v=8">
+<link rel="stylesheet" href="assets/estilos.css?v=9">
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "TravelAgency",
-  "name": "Maho's Tours La Paz",
-  "url": "https://jakermanrgb.github.io/mahos-tours/",
-  "image": "https://jakermanrgb.github.io/mahos-tours/assets/img/og.jpg",
-  "description": "Tours compartidos y privados a Isla Espíritu Santo, Balandra, Isla Cerralvo y tiburón ballena; pesca deportiva y yates privados desde La Paz, B.C.S.",
-  "priceRange": "$1,200 - $32,000 MXN",
-  "currenciesAccepted": "MXN",
-  "areaServed": "La Paz, Baja California Sur",
-  "address": { "@type": "PostalAddress", "streetAddress": "Muelle Fiscal, Malecón", "addressLocality": "La Paz", "addressRegion": "B.C.S.", "addressCountry": "MX" },
-  "sameAs": ["https://www.instagram.com/mahostours/", "https://www.facebook.com/Mahostours"]
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "TravelAgency",
+   "@id": "https://jakermanrgb.github.io/mahos-tours/#agencia",
+   "name": "Maho's Tours La Paz",
+   "url": "https://jakermanrgb.github.io/mahos-tours/",
+   "logo": "https://jakermanrgb.github.io/mahos-tours/assets/img/logo-nav.webp",
+   "image": "https://jakermanrgb.github.io/mahos-tours/assets/img/og.jpg",
+   "description": "Tours compartidos y privados a Isla Espíritu Santo, Balandra, Isla Cerralvo y tiburón ballena; pesca deportiva y yates privados desde el malecón de La Paz, B.C.S.",
+   "priceRange": "$1,200 - $32,000 MXN",
+   "currenciesAccepted": "MXN",
+   "areaServed": {
+    "@type": "City",
+    "name": "La Paz, Baja California Sur"
+   },
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Muelle Fiscal, Malecón",
+    "addressLocality": "La Paz",
+    "addressRegion": "B.C.S.",
+    "addressCountry": "MX"
+   },
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 24.1607,
+    "longitude": -110.3146
+   },
+   "knowsLanguage": [
+    "es",
+    "en"
+   ],
+   "sameAs": [
+    "https://www.instagram.com/mahostours/",
+    "https://www.facebook.com/Mahostours"
+   ]
+  },
+  {
+   "@type": "ItemList",
+   "name": "Tours de Maho's Tours en La Paz",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "item": {
+      "@type": "TouristTrip",
+      "name": "Tour compartido Isla Espíritu Santo + Balandra",
+      "description": "6 horas desde el Muelle Fiscal: Balandra, nado con lobos marinos, snorkel en arrecife y lunch en Ensenada Grande.",
+      "image": "https://jakermanrgb.github.io/mahos-tours/assets/img/g-balandra-2.webp",
+      "touristType": "Turismo de naturaleza",
+      "provider": {
+       "@id": "https://jakermanrgb.github.io/mahos-tours/#agencia"
+      },
+      "offers": [
+       {
+        "@type": "Offer",
+        "price": "1300",
+        "priceCurrency": "MXN",
+        "description": "Adulto",
+        "availability": "https://schema.org/InStock",
+        "url": "https://jakermanrgb.github.io/mahos-tours/#carta"
+       },
+       {
+        "@type": "Offer",
+        "price": "1200",
+        "priceCurrency": "MXN",
+        "description": "Menor",
+        "availability": "https://schema.org/InStock",
+        "url": "https://jakermanrgb.github.io/mahos-tours/#carta"
+       }
+      ]
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "item": {
+      "@type": "TouristTrip",
+      "name": "Nado con tiburón ballena en La Paz",
+      "description": "2 horas en la Bahía de La Paz con equipo de snorkel, neopreno y chaleco.",
+      "image": "https://jakermanrgb.github.io/mahos-tours/assets/img/g-tiburon-1.webp",
+      "touristType": "Turismo de naturaleza",
+      "provider": {
+       "@id": "https://jakermanrgb.github.io/mahos-tours/#agencia"
+      },
+      "offers": [
+       {
+        "@type": "Offer",
+        "price": "1600",
+        "priceCurrency": "MXN",
+        "description": "Por persona",
+        "availability": "https://schema.org/InStock",
+        "url": "https://jakermanrgb.github.io/mahos-tours/#carta"
+       }
+      ]
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "item": {
+      "@type": "TouristTrip",
+      "name": "Tour a Isla Cerralvo",
+      "description": "5 horas de snorkel con lobos marinos y arrecifes; posibles delfines y mobulas.",
+      "image": "https://jakermanrgb.github.io/mahos-tours/assets/img/g-cerralvo-2.webp",
+      "touristType": "Turismo de naturaleza",
+      "provider": {
+       "@id": "https://jakermanrgb.github.io/mahos-tours/#agencia"
+      },
+      "offers": [
+       {
+        "@type": "Offer",
+        "price": "1600",
+        "priceCurrency": "MXN",
+        "description": "Compartido, por persona",
+        "availability": "https://schema.org/InStock",
+        "url": "https://jakermanrgb.github.io/mahos-tours/#carta"
+       },
+       {
+        "@type": "Offer",
+        "price": "10000",
+        "priceCurrency": "MXN",
+        "description": "Privado, hasta 6 personas",
+        "availability": "https://schema.org/InStock",
+        "url": "https://jakermanrgb.github.io/mahos-tours/#carta"
+       }
+      ]
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "item": {
+      "@type": "TouristTrip",
+      "name": "Tour privado a Isla Espíritu Santo",
+      "description": "6 horas en lancha privada desde Marina La Costa, con comida en la playa.",
+      "image": "https://jakermanrgb.github.io/mahos-tours/assets/img/g-esp-privado.webp",
+      "touristType": "Turismo de naturaleza",
+      "provider": {
+       "@id": "https://jakermanrgb.github.io/mahos-tours/#agencia"
+      },
+      "offers": [
+       {
+        "@type": "Offer",
+        "price": "12000",
+        "priceCurrency": "MXN",
+        "description": "Por embarcación",
+        "availability": "https://schema.org/InStock",
+        "url": "https://jakermanrgb.github.io/mahos-tours/#carta"
+       }
+      ]
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 5,
+     "item": {
+      "@type": "TouristTrip",
+      "name": "Tour privado a playa Balandra",
+      "description": "4 horas con snorkel, ceviche y bebidas, hasta 6 personas.",
+      "image": "https://jakermanrgb.github.io/mahos-tours/assets/img/g-balandra-1.webp",
+      "touristType": "Turismo de naturaleza",
+      "provider": {
+       "@id": "https://jakermanrgb.github.io/mahos-tours/#agencia"
+      },
+      "offers": [
+       {
+        "@type": "Offer",
+        "price": "12000",
+        "priceCurrency": "MXN",
+        "description": "Por embarcación, hasta 6 personas",
+        "availability": "https://schema.org/InStock",
+        "url": "https://jakermanrgb.github.io/mahos-tours/#carta"
+       }
+      ]
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 6,
+     "item": {
+      "@type": "TouristTrip",
+      "name": "Pesca deportiva en La Paz",
+      "description": "7 horas en lancha privada, hasta 4 pescadores, equipo incluido.",
+      "image": "https://jakermanrgb.github.io/mahos-tours/assets/img/t-pesca.webp",
+      "touristType": "Turismo de naturaleza",
+      "provider": {
+       "@id": "https://jakermanrgb.github.io/mahos-tours/#agencia"
+      },
+      "offers": [
+       {
+        "@type": "Offer",
+        "price": "6500",
+        "priceCurrency": "MXN",
+        "description": "2 personas",
+        "availability": "https://schema.org/InStock",
+        "url": "https://jakermanrgb.github.io/mahos-tours/#carta"
+       },
+       {
+        "@type": "Offer",
+        "price": "500",
+        "priceCurrency": "MXN",
+        "description": "Persona adicional",
+        "availability": "https://schema.org/InStock",
+        "url": "https://jakermanrgb.github.io/mahos-tours/#carta"
+       }
+      ]
+     }
+    },
+    {
+     "@type": "ListItem",
+     "position": 7,
+     "item": {
+      "@type": "TouristTrip",
+      "name": "Yates privados a Espíritu Santo y Balandra",
+      "description": "8 horas con capitán, chef y marinero: Sea Ray 40, Chris Craft 45 o yate para 8.",
+      "image": "https://jakermanrgb.github.io/mahos-tours/assets/img/t-yates.webp",
+      "touristType": "Turismo de naturaleza",
+      "provider": {
+       "@id": "https://jakermanrgb.github.io/mahos-tours/#agencia"
+      },
+      "offers": [
+       {
+        "@type": "Offer",
+        "price": "26500",
+        "priceCurrency": "MXN",
+        "description": "Yate privado, hasta 8",
+        "availability": "https://schema.org/InStock",
+        "url": "https://jakermanrgb.github.io/mahos-tours/#carta"
+       },
+       {
+        "@type": "Offer",
+        "price": "32000",
+        "priceCurrency": "MXN",
+        "description": "Sea Ray 40, hasta 12",
+        "availability": "https://schema.org/InStock",
+        "url": "https://jakermanrgb.github.io/mahos-tours/#carta"
+       },
+       {
+        "@type": "Offer",
+        "price": "30000",
+        "priceCurrency": "MXN",
+        "description": "Chris Craft 45, hasta 15",
+        "availability": "https://schema.org/InStock",
+        "url": "https://jakermanrgb.github.io/mahos-tours/#carta"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "¿Necesito saber nadar?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No es requisito. En el snorkel usas chaleco salvavidas y el guía está contigo en el agua. Si prefieres no meterte, disfrutas igual desde la lancha o la playa."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Qué pasa si hay viento?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "La ruta y la playa se eligen el mismo día, según el viento y los permisos de SEMARNAT. Si la Capitanía de Puerto cierra la navegación, nadie sale: te escribimos para cambiar la fecha."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Cuánto pagan los niños?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "En el compartido a Espíritu Santo + Balandra, $1,200 MXN por menor. En los tours privados y los yates el precio es por embarcación, sin importar la edad."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Dónde nos vemos?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "El compartido a Espíritu Santo + Balandra sale del Muelle Fiscal, en el malecón. Los privados y los yates salen de Marina La Costa. Al reservar te mandamos la ubicación por WhatsApp."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿La pesca incluye licencia?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. La licencia de pesca deportiva se tramita antes de salir; la carnada y el lunch tampoco van incluidos. Te decimos cómo sacarla al reservar."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Cuándo hay tiburón ballena?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Se ve en la Bahía de La Paz en temporada, que suele ir de otoño a primavera. El horario cambia cada día, así que conviene tener el día libre. Escríbenos y te decimos cómo va la semana."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Cómo aparto mi lugar?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Elige tu tour en el mapa, pon la fecha y cuántos van, y toca Apartar por WhatsApp: el mensaje sale listo. Maho's te confirma lugar y forma de pago."
+     }
+    }
+   ]
+  }
+ ]
 }
 </script>
 </head>
@@ -74,7 +390,7 @@
   <div class="hero__top">
   <div class="hero__stage" aria-hidden="true">
     <picture>
-      <source media="(max-width: 720px)" srcset="assets/img/hero-m.webp?v=8" width="720" height="1280">
+      <source media="(max-width: 720px)" srcset="assets/img/hero-m.webp?v=9" width="720" height="1280">
       <img class="hero__img" src="assets/img/hero.webp" width="1920" height="1280" alt="" fetchpriority="high" decoding="async">
     </picture>
     <div class="hero__light"></div>
@@ -84,8 +400,8 @@
     <div class="hero__copy">
       <p class="eyebrow eyebrow--light reveal-up" data-t="hero.coord">Tours en barco · La Paz, B.C.S.</p>
       <h1 id="hero-title" class="hero__title">
-        <span class="hero__l1 reveal-up" data-t="hero.t1">Isla Espíritu Santo,</span>
-        <span class="hero__l2 reveal-up" data-t="hero.t2">Balandra y los lobos marinos</span>
+        <span class="hero__l1 reveal-up" data-t="hero.t1">Isla Espíritu Santo y Balandra</span>
+        <span class="hero__l2 reveal-up" data-t="hero.t2">Nada con lobos marinos en el Mar de Cortés</span>
       </h1>
     </div>
     <form class="planner reveal-up" onsubmit="return false" aria-labelledby="planner-title">
@@ -473,8 +789,8 @@
   </form>
 </dialog>
 
-<script src="assets/datos.js?v=8"></script>
-<script src="assets/i18n.js?v=8"></script>
-<script src="assets/app.js?v=8" defer></script>
+<script src="assets/datos.js?v=9"></script>
+<script src="assets/i18n.js?v=9"></script>
+<script src="assets/app.js?v=9" defer></script>
 </body>
 </html>
