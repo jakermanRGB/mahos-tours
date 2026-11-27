@@ -636,3 +636,4 @@ button{-webkit-appearance:none;appearance:none}
 .rev__acts .soc{background:#fff;border:1px solid var(--line);box-shadow:none}
 .rev__acts .soc:hover{border-color:var(--aqua)}
 @media (max-width:620px){.rev__follow{width:100%}}
+.resenas{padding:clamp(56px,7vw,90px) 0 10px}
