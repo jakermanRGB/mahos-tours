@@ -589,9 +589,7 @@ button{-webkit-appearance:none;appearance:none}
 @media (max-width:720px){.hero__img{object-position:50% 45%}}
 
 /* portada: fondo por tour, reseña y redes */
-.hero__alt{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s var(--ease-out);z-index:0}
-.hero__alt.on{opacity:1}
-.hero__light,.hero__scrim{z-index:1}
+
 .hero__l1{font-size:clamp(38px,4.8vw,68px)}
 .hero__l2{font-size:clamp(22px,2.6vw,38px)}
 .hero__review{margin:22px 0 0;max-width:46ch;padding:14px 16px;border-radius:14px;background:rgba(13,35,82,.42);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);transition:opacity .45s var(--ease-out)}
@@ -623,3 +621,18 @@ button{-webkit-appearance:none;appearance:none}
 .rev__note{margin:14px 0 0;font-size:12.5px;color:var(--muted)}
 @media (max-width:980px){.rev__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:620px){.rev__grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(var(--gutter) * -1);padding:4px var(--gutter) 12px;scrollbar-width:none}.rev__grid::-webkit-scrollbar{display:none}.rev{flex:0 0 84%;scroll-snap-align:start}.rev.reveal{opacity:1;transform:none}.resenas .sec-head{flex-direction:column;align-items:flex-start}}
+
+/* portada: fundido cruzado con zoom lento y desvanecido oscuro */
+.hero__alt{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1.2s var(--ease-io),transform 7s var(--ease-out);z-index:0}
+.hero__alt.on{opacity:1;transform:scale(1.02)}
+.hero__shade{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity 1.2s var(--ease-io);background:linear-gradient(90deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.22) 50%,rgba(0,0,0,0) 75%),linear-gradient(0deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,0) 45%)}
+.hero__stage.alt-on .hero__shade{opacity:1}
+.hero__light,.hero__scrim{z-index:2}
+@media (max-width:720px){.hero__shade{background:linear-gradient(0deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.5) 45%,rgba(0,0,0,.28) 100%)}}
+@media (prefers-reduced-motion:reduce){.hero__alt{transform:none;transition:opacity .4s}}
+/* redes en la sección de reseñas */
+.rev__acts{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px}
+.rev__follow{font:600 12px var(--head);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+.rev__acts .soc{background:#fff;border:1px solid var(--line);box-shadow:none}
+.rev__acts .soc:hover{border-color:var(--aqua)}
+@media (max-width:620px){.rev__follow{width:100%}}
