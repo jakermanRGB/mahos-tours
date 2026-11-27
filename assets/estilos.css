@@ -637,3 +637,39 @@ button{-webkit-appearance:none;appearance:none}
 .rev__acts .soc:hover{border-color:var(--aqua)}
 @media (max-width:620px){.rev__follow{width:100%}}
 .resenas{padding:clamp(56px,7vw,90px) 0 10px}
+
+/* ===== mapa de rutas: estilo editorial (inspo) ===== */
+.carta .chart,.carta .picker{--navy:#173f4b;--aqua:#39aaa4;--aqua-ink:#287e7b;--coral:#e87559;--water:#d8eeeb;--shoal:#9bcfc7;--land:#eee2ca;--land-line:rgba(130,116,83,.24);--chart-ink:#527b7b;--line:rgba(23,63,75,.16);--ease-out:cubic-bezier(.2,.8,.2,1)}
+.carta .chart{border:1px solid rgba(23,63,75,.12);border-radius:4px;box-shadow:0 2px 10px rgba(23,63,75,.035);isolation:isolate}
+.carta .chart__tag{position:absolute;z-index:2;bottom:40px;left:15px;padding:8px 10px;background:rgba(248,249,243,.9);color:var(--navy);font:700 9px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;pointer-events:none;transition:opacity .4s}
+.carta .chart.zoomed .chart__tag{opacity:0}
+.carta .chart__cap{left:15px;right:15px;bottom:11px;padding-top:8px;border-top:1px solid rgba(23,63,75,.15);font:500 9.5px/1.4 var(--body);letter-spacing:.035em;color:#587d7d}
+.carta .chart text{font-family:var(--body)}
+.carta .chart text.sc{font-size:calc(var(--u,1) * 11px)}
+.carta .chart .grid-line{stroke-opacity:.12;stroke-dasharray:2 7}
+.carta .chart .grid-lab.sc{fill-opacity:.58;font-size:calc(var(--u,1) * 9px);letter-spacing:.04em}
+.carta .chart .land{stroke:#c9b995;stroke-width:1.1}
+.carta .chart .land-hatch{opacity:.7}
+.carta .chart .place.sc{font-size:calc(var(--u,1) * 10px);font-weight:700;letter-spacing:.13em;fill:#9b8765}
+.carta .chart .place--sea.sc{fill:#5e9994;fill-opacity:.9;font-weight:600;letter-spacing:.24em;font-size:calc(var(--u,1) * 12px)}
+.carta .chart .rose-n{font-size:13px;letter-spacing:.08em}
+.carta .route--ghost{stroke-opacity:.16;stroke-width:8}
+.carta .route--live{stroke-width:3.5}
+.carta .stop circle{fill:#fffdf7}
+.carta .stop .n.sc{font-size:calc(var(--u,1) * 10px);fill:#d9664d}
+.carta .stop .lab.sc,.carta .pin .lab.sc{font-size:calc(var(--u,1) * 11.5px);font-weight:700;stroke:#f8f8f2}
+.carta .pin .dot{stroke:#f8f8f2}
+.carta .pin .km.sc{font-size:calc(var(--u,1) * 10px);fill:#287e7b;stroke:#f8f8f2}
+.carta .ray{stroke-opacity:.43;stroke-width:1.3}
+.carta .chart__rose circle{stroke-opacity:.3}
+/* selector de tours: lista limpia con marca coral */
+.carta .picker{gap:6px}
+.carta .chip{-webkit-appearance:none;appearance:none;position:relative;border:1px solid var(--line);border-radius:4px;background:#fbfbf7;padding:12px 14px 12px 16px;min-height:56px;transition:background .22s ease,border-color .22s ease}
+.carta .chip:before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:2px;background:transparent;transition:background .22s ease}
+.carta .chip:hover{transform:none;background:rgba(57,170,164,.08);border-color:rgba(57,170,164,.4)}
+.carta .chip__name{font:600 13.5px/1.3 var(--body)}
+.carta .chip__meta{font-size:11.5px;color:#718487;margin-top:3px}
+.carta .chip[aria-selected="true"]{background:#e6f1ed;color:var(--navy);border-color:rgba(23,63,75,.22)}
+.carta .chip[aria-selected="true"]:before{background:var(--coral)}
+.carta .chip[aria-selected="true"] .chip__meta{color:#5f8581}
+@media (max-width:620px){.carta .chart__tag{display:none}.carta .chart__cap{font-size:8px;left:10px;right:10px;bottom:7px}}

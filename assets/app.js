@@ -239,6 +239,7 @@ function drawPlaces() {
 
 let scale = 1;
 function fitTo(points) {
+  $('.chart').classList.toggle('zoomed', !!points);
   if (!points) { scale = 1; world.style.transform = 'translate(0px, 0px) scale(1)'; sizeText(); return; }
   const xs = points.map(p => p[0]), ys = points.map(p => p[1]);
   const pad = 70;

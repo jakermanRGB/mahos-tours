@@ -73,6 +73,7 @@ window.I18N = {
     "sh.title": "Hold your spot",
     "sh.close": "Close",
     "sh.cta": "Send on WhatsApp",
+    "carta.tag": "Bay of La Paz · Sea of Cortez",
     "rev.fb": "Recommends Maho's on Facebook",
     "soc.follow": "Follow us",
     "rev.eyebrow": "Real reviews on Facebook",
