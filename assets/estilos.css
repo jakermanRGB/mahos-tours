@@ -514,27 +514,6 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   .vcard.reveal{opacity:1;transform:none}
 }
 
-/* ¿Con quién viajas? (filtro) */
-.quien{padding:44px 0 6px}
-.quien .h-small{margin-bottom:18px}
-.quien__row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.qchip{display:flex;flex-direction:column;align-items:center;gap:8px;width:118px;padding:0 0 10px;border:2px solid transparent;border-radius:18px;background:none;cursor:pointer;transition:transform .3s var(--ease-out)}
-.qchip img{width:96px;height:96px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 10px 22px -12px rgba(13,35,82,.55);transition:transform .3s var(--ease-out),box-shadow .3s}
-.qchip span{font:600 14px var(--head);color:var(--navy);text-align:center;line-height:1.25}
-.qchip:hover img{transform:scale(1.05)}
-.qchip[aria-pressed="true"] img{box-shadow:0 0 0 3px var(--sun),0 10px 22px -12px rgba(13,35,82,.55)}
-.qchip[aria-pressed="true"] span{color:var(--aqua-ink)}
-.quien__hint{text-align:center;color:var(--muted);font-size:15px;margin:10px auto 0;max-width:52ch;min-height:1.6em}
-@media (max-width:720px){
-  .quien{padding:32px 0 0}
-  .quien__row{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;margin:0 calc(var(--gutter) * -1);padding:4px var(--gutter) 6px;gap:6px}
-  .quien__row::-webkit-scrollbar{display:none}
-  .qchip{width:86px;flex:0 0 auto}
-  .qchip img{width:70px;height:70px}
-  .qchip span{font-size:12.5px}
-  .quien__hint{font-size:14px;text-align:left}
-}
-
 /* insignias y precio por persona en tarjetas */
 .card__badge{position:absolute;right:12px;top:12px;font:600 11.5px var(--head);padding:5px 11px;border-radius:999px;background:#fff;color:var(--navy);box-shadow:0 4px 12px rgba(0,0,0,.18)}
 .card__badge::before{content:"★ ";color:#e9a400}
@@ -574,3 +553,13 @@ html.sheet-open{overflow:hidden}
 @keyframes sheetup{from{transform:translateY(100%)}to{transform:none}}
 @media (prefers-reduced-motion:reduce){.sheet__in{animation:none}}
 .card__badge{right:auto;left:12px;top:44px}
+
+/* ¿Con quién viajas? como filtro, con las tarjetas de foto */
+.viaje.quien{padding:56px 0 8px}
+.quien .h-small{margin-bottom:20px}
+.vcard.qchip{outline:3px solid transparent;outline-offset:3px;transition:outline-color .25s,transform .3s var(--ease-out)}
+.vcard.qchip:hover{transform:translateY(-3px)}
+.vcard.qchip[aria-pressed="true"]{outline-color:var(--sun)}
+.vcard.qchip[aria-pressed="true"]::before{content:"✓";position:absolute;top:12px;right:12px;z-index:2;width:30px;height:30px;border-radius:50%;background:var(--sun);color:var(--navy);font:700 16px/30px var(--head);text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.quien__hint{text-align:center;color:var(--muted);font-size:15px;margin:16px auto 0;max-width:56ch;min-height:1.6em}
+@media (max-width:860px){.viaje.quien{padding:40px 0 0}.quien__hint{text-align:left;font-size:14px;margin-top:8px}}

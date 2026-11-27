@@ -767,7 +767,7 @@ $('.js-sh-map').addEventListener('click', () => {
 $$('.qchip').forEach(b => b.addEventListener('click', () => {
   quien = quien === b.dataset.q ? null : b.dataset.q;
   $$('.qchip').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.q === quien)));
-  $('.js-q-hint').textContent = quien ? u().hint[quien] : ((window.I18N[lang] || {})['via.hint'] || 'Elige y te ordenamos los tours que más te van.');
+  $('.js-q-hint').textContent = quien ? u().hint[quien] : ((window.I18N[lang] || {})['via.hint'] || 'Toca una y te ordenamos los tours que más te van.');
   renderCards(); $('.js-cards').scrollTo({ left: 0 });
   if (quien) $('#tours').scrollIntoView({ behavior: RM.matches ? 'auto' : 'smooth' });
   track('filtro_quien', { quien: quien || 'todos' });

@@ -69,7 +69,7 @@ window.I18N = {
     "book.cta": "Hold my spot on WhatsApp",
     "book.fine": "Opens WhatsApp with your tour, date and group size. Maho's confirms availability and payment.",
     "via.pes": "Anglers",
-    "via.hint": "Pick one and we'll sort the tours that suit you best.",
+    "via.hint": "Tap one and we'll sort the tours that suit you best.",
     "sh.title": "Hold your spot",
     "sh.close": "Close",
     "sh.cta": "Send on WhatsApp",
