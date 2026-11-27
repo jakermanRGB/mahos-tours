@@ -83,7 +83,15 @@ const YATES_TOUR = {
   incluye: { es: N.yate_menu.es, en: N.yate_menu.en }
 };
 const TOURS = Object.fromEntries([...N.tours, YATES_TOUR].map(t => [t.id, t]));
-const IMG = { 'es-balandra': 't-es', 'es-privado': 't-esp', 'balandra-privado': 't-bal', 'pesca': 't-pesca', 'cerralvo': 't-cerralvo', 'tiburon': 't-tiburon', 'yates': 't-yates' };
+const GAL = {
+  'es-balandra': ['g-balandra-2', 't-es', 'v-amantes'],
+  'es-privado': ['g-esp-privado', 't-esp'],
+  'balandra-privado': ['g-balandra-1', 'g-balandra-2'],
+  'pesca': ['t-pesca'],
+  'cerralvo': ['g-cerralvo-2', 'g-cerralvo-1'],
+  'tiburon': ['g-tiburon-1', 'g-tiburon-2'],
+  'yates': ['t-yates']
+};
 const ORDER = ['es-balandra', 'tiburon', 'cerralvo', 'es-privado', 'balandra-privado', 'pesca', 'yates'];
 const yateById = (id) => N.yates.find(y => y.id === id);
 const yName = (y) => typeof y.nombre === 'string' ? y.nombre : y.nombre[lang];
@@ -553,7 +561,7 @@ function renderCards() {
     const cap = t.id === 'yates' ? '8 · 12 · 15' : t.capacidad ? `${u().hasta} ${t.capacidad}` : '';
     const sal = t.id === 'cerralvo' ? 'La Ventana' : N.salidas[t.salida].nombre[lang];
     liEl.innerHTML = `
-      <div class="card__img"><img src="assets/img/${IMG[id]}.webp" alt="" loading="lazy" decoding="async" width="900" height="600"><span class="card__tag${priv ? ' card__tag--priv' : ''}"></span></div>
+      <div class="card__img"><div class="gal">${GAL[id].map((g, n) => `<img src="assets/img/${g}.webp" alt="" loading="lazy" decoding="async" width="1200" height="900">`).join('')}</div>${GAL[id].length > 1 ? `<button type="button" class="gal__nav gal__nav--prev" tabindex="-1" aria-hidden="true">‹</button><button type="button" class="gal__nav gal__nav--next" tabindex="-1" aria-hidden="true">›</button><div class="gal__dots" aria-hidden="true">${GAL[id].map((_, n) => `<i class="${n ? '' : 'on'}"></i>`).join('')}</div>` : ''}<span class="card__tag${priv ? ' card__tag--priv' : ''}"></span></div>
       <div class="card__body">
         <h3 class="card__name"></h3>
         <p class="card__meta"><span>${ICO.time}<b class="m1"></b></span><span>${ICO.pin}<b class="m2"></b></span>${cap ? `<span>${ICO.ppl}<b class="m3"></b></span>` : ''}</p>
@@ -568,7 +576,15 @@ function renderCards() {
     $('.card__price small', liEl).textContent = u().desde;
     $('.card__price strong', liEl).textContent = money(fromPrice(t));
     $('.card__price em', liEl).textContent = perPerson(t) ? u().por_persona : u().por_barco;
-    $('.card img', liEl).alt = t.nombre[lang];
+    $$('.gal img', liEl).forEach((im, n) => { im.alt = `${t.nombre[lang]} · ${n + 1}/${GAL[id].length}`; });
+    const gal = $('.gal', liEl), dots = $$('.gal__dots i', liEl);
+    if (dots.length) {
+      const cur = () => Math.round(gal.scrollLeft / gal.clientWidth);
+      gal.addEventListener('scroll', () => { const k = cur(); dots.forEach((d, n) => d.classList.toggle('on', n === k)); }, { passive: true });
+      const go = (d) => { const k = (cur() + d + dots.length) % dots.length; gal.scrollTo({ left: k * gal.clientWidth, behavior: RM.matches ? 'auto' : 'smooth' }); };
+      $('.gal__nav--prev', liEl).addEventListener('click', e => { e.stopPropagation(); go(-1); });
+      $('.gal__nav--next', liEl).addEventListener('click', e => { e.stopPropagation(); go(1); });
+    }
     const rb = $('.js-route', liEl); rb.textContent = u().verruta; rb.addEventListener('click', () => goToTour(id));
     const a = $('a', liEl); a.textContent = u().reservar; a.href = waLink(`Tour: ${t.id === 'yates' ? u().yateChip : t.nombre[lang]}.`);
     ul.appendChild(liEl);
