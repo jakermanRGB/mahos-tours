@@ -779,6 +779,39 @@ function paintExtras() {
   $$('.js-wind').forEach(p => { p.textContent = u().viento; });
 }
 
+/* ---------- portada: el fondo cambia con el tour elegido ---------- */
+const heroAlt = $('.hero__alt');
+const HERO_BG = { 'es-balandra': null, 'tiburon': 'g-tiburon-2', 'cerralvo': 'g-cerralvo-2', 'cerralvo:privado': 'g-cerralvo-2', 'es-privado': 'g-esp-privado', 'balandra-privado': 'g-balandra-1', 'pesca': 't-pesca', 'yate:yate-8': 't-yates', 'yate:sea-ray-40': 't-yates', 'yate:chris-craft-45': 't-yates' };
+function heroBg(v) {
+  const img = HERO_BG[v];
+  if (!img) { heroAlt.classList.remove('on'); return; }
+  const src = `assets/img/${img}.webp`;
+  const show = () => { heroAlt.classList.add('on'); };
+  if (heroAlt.getAttribute('src') === src) { show(); return; }
+  heroAlt.classList.remove('on');
+  const pre = new Image(); pre.onload = () => { heroAlt.src = src; requestAnimationFrame(show); }; pre.src = src;
+}
+planSel.addEventListener('change', () => heroBg(planSel.value));
+
+/* ---------- reseñas que rotan en la portada ---------- */
+const HREV = [
+  ['“Reserve el tour para la isla Espíritu Santo, todo súper bien, personal amable, atento, comida rica, todo 10/10”', 'Karla V.'],
+  ['“los guías fueron muy amables y puntuales, nos explicaron todo. Lo mejor del viaje fue el snorkel”', 'Corinna G.'],
+  ['“Una gran experiencia, el capitán y las guías súper amigables. Un servicio muuy completo y siempre dispuestos a escuchar a sus visitantes:) 100% recomendado”', 'Danna A.'],
+  ['“Increíble tour, mi familia y yo estamos súper agradecidos por la gran experiencia que tuvimos”', 'Aili P.']
+];
+let hrevI = 0;
+const hrevBox = $('.hero__review');
+if (!RM.matches) setInterval(() => {
+  if (document.hidden) return;
+  hrevBox.classList.add('swap');
+  setTimeout(() => {
+    hrevI = (hrevI + 1) % HREV.length;
+    $('.js-hrev-q').textContent = HREV[hrevI][0]; $('.js-hrev-n').textContent = HREV[hrevI][1];
+    hrevBox.classList.remove('swap');
+  }, 450);
+}, 6500);
+
 /* ---------- preguntas: una abierta a la vez ---------- */
 $$('.faq details').forEach(d => d.addEventListener('toggle', () => {
   if (!d.open) return;
